@@ -8,7 +8,7 @@
         Block = block;
         Hole = hole;
     }
-    internal override bool? Action(Vector2Int pos)
+    public override bool? Action(Vector2Int pos)
     {
         bool success = TryToMakeHole(pos.x, pos.y);
         if (success) SuccededToMakeHole?.Invoke(pos.x, pos.y);

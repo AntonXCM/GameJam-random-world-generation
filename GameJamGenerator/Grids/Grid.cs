@@ -18,7 +18,6 @@ public class Grid : IGrid<Tile>
             for (int j = 0; j < height; j++)
                 grid[i, j] = baseValue;
     }
-
     public Tile this[int row, int col]
     {
         get => grid[row, col]; set

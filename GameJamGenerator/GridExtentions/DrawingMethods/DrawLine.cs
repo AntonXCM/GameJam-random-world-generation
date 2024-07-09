@@ -1,4 +1,4 @@
-﻿internal static partial class GridDrawingMethods
+﻿public static partial class GridDrawingMethods
 {
     public static void DrawLine<T>(this IGrid<T> grid, T drawingObject, Vector2 startPos, Vector2 endPos)
     {

@@ -1,4 +1,4 @@
-﻿internal static class GetGridElementByProperty
+﻿public static class GetGridElementByProperty
 {
     public static T GetMaxValue<T>(this IGrid<T> grid, Func<T, double> func)
     {
@@ -31,7 +31,7 @@
             actionStopMode = ActionStopMode.StopIterating;
             this.tile = tile;
         }
-        internal override bool? Action(Vector2Int pos)
+        public override bool? Action(Vector2Int pos)
         {
             if (!iteratingGrid[pos].Equals(tile)) return false;
             tilePosition = pos;

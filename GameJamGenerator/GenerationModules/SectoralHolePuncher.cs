@@ -1,6 +1,6 @@
 ﻿using System.Collections.Concurrent;
 
-internal class SectoralHolePuncher<T> : HolePuncher<T>
+public class SectoralHolePuncher<T> : HolePuncher<T>
 {
     Vector2Int sectorSize;
     public SectoralHolePuncher(Vector2Int sectorSize,T empty, T block, T hole) : base(empty, block, hole)
