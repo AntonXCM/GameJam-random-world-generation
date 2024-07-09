@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Здравствуйте, программисты. Это та генерация, которую я сделал для геймджема. Оцените код честно и если вам понравится, я сделаю генератор для вас <3");
             while (true)
             {
                 GameGenerator gameGenerator = new GeneratorFactory();

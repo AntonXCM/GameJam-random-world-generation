@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJamGenerator\\GameJamGenerator.csproj",
+      "projectUniqueName": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\GameJamGenerator.csproj",
       "projectName": "GameJamGenerator",
-      "projectPath": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJamGenerator\\GameJamGenerator.csproj",
+      "projectPath": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\GameJamGenerator.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJamGenerator\\obj\\",
+      "outputPath": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
