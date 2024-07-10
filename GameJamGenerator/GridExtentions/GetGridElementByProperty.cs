@@ -21,7 +21,7 @@
         domashniyIsheyka.Generate(ref grid);
         return domashniyIsheyka.tilePosition;
     }
-    private class TilePositionGetter<T> : GridIterator<T>
+    private class TilePositionGetter<T> : SimpleIteratorGenerationModule<T>
     {
         public Vector2Int tilePosition;
         T tile;
@@ -31,7 +31,7 @@
             actionStopMode = ActionStopMode.StopIterating;
             this.tile = tile;
         }
-        public override bool? Action(Vector2Int pos)
+        public override bool Action(Vector2Int pos)
         {
             if (!iteratingGrid[pos].Equals(tile)) return false;
             tilePosition = pos;

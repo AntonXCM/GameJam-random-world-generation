@@ -22,10 +22,7 @@ public class SectoralHolePuncher<T> : HolePuncher<T>
         base.Iterate();
         Hole = actualHole;
         foreach (var listVector2 in succesPositionsInSectors)
-        {
-            Vector2Int pos = listVector2.Value.OrderBy(x => GlobalGenRandom.Next(33)).ToArray()[0];
-            MakeHole(pos.x, pos.y);
-        }
+            MakeHole(listVector2.Value.OrderBy(x => GlobalGenRandom.Next(33)).ToArray()[0]);
     }
     protected override void Initialze(ref IGrid<T> grid)
     {

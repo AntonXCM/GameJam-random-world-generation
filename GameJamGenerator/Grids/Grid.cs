@@ -7,28 +7,17 @@ public enum Tile
 public class Grid : IGrid<Tile>
 {
     private Tile[,] grid;
-    public Grid(Tile[,] grid)
-    {
-        this.grid = grid;
-    }
-    public Grid(int width, int height) : this(width, height,Tile.empty) { }
+    public Grid(Tile[,] grid) => this.grid = grid;
+    public Grid(int width, int height) : this(width, height,Tile.empty){}
     public Grid(int width, int height, Tile baseValue) : this(new Tile[width, height]) 
     {
-        for (int i = 0; i < width; i++)
-            for (int j = 0; j < height; j++)
-                grid[i, j] = baseValue;
+        this.Iterate((pos) =>{(this as IGrid<Tile>)[pos] = baseValue; return false;});
     }
-    public Tile this[int row, int col]
-    {
-        get => grid[row, col]; set
-        {
-            grid[row, col] = value;
-            //Console.WriteLine(ToString());
-        }
-    }
+    public Tile this[int row, int col] { get => grid[row, col]; set => grid[row, col] = value; }
 
     public int Width { get => grid.GetLength(0); }
     public int Height { get => grid.GetLength(1); }
+    
     public static readonly Dictionary<Tile, (char, char)> tileSymbols = new([
         new(Tile.empty, (' ', ' ')), 
         new(Tile.wall, ('█', '█')),

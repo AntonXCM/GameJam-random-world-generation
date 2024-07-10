@@ -15,7 +15,7 @@
         hardnessToGetPoint = new(grid.Width, grid.Height, int.MaxValue);
         hardnessToGetPoint[startPos.x,startPos.y] = 0;
     }
-    public override bool? Action(Vector2Int pos)
+    public override bool Action(Vector2Int pos)
     {
         if(pos != startPos)
             hardnessToGetPoint[pos.x,pos.y] = GetThatCellHardness(pos);

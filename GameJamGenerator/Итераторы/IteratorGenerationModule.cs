@@ -6,5 +6,5 @@
         Iterate();
     }
     protected abstract void Iterate();
-    public abstract bool? Action(Vector2Int pos);
+    public abstract bool Action(Vector2Int pos);
 }

@@ -11,9 +11,9 @@ public class BucketFill<T> : BucketIterator<T>
         foreach (Vector2Int position in positionsToCheck) fillingValues.Add(grid[position]);
         this.fillingValues = fillingValues.ToArray();
     }
-    public override bool? Action(Vector2Int pos)
+    public override bool Action(Vector2Int pos)
     {
-        iteratingGrid[pos] = Brush.GetValue(pos.x,pos.y, iteratingGrid[pos]);
+        iteratingGrid.DrawTile(pos, Brush);
         return false;
     }
     public override bool CheckPosition(Vector2Int pos) => base.CheckPosition(pos) && fillingValues.Contains(iteratingGrid[pos]);
