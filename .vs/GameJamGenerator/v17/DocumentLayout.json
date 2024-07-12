@@ -3,56 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|c:\\users\\user\\source\\repos\\gamejamgenerator\\gamejam-random-world-generation\\gamejamgenerator\\gridextentions\\simpleitarationmethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|solutionrelative:gamejamgenerator\\gridextentions\\simpleitarationmethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|c:\\users\\user\\source\\repos\\gamejamgenerator\\gamejam-random-world-generation\\gamejamgenerator\\grids\\grid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|solutionrelative:gamejamgenerator\\grids\\grid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|c:\\users\\user\\source\\repos\\gamejamgenerator\\gamejam-random-world-generation\\gamejamgenerator\\\u0438\u0442\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\iteratorgenerationmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|solutionrelative:gamejamgenerator\\\u0438\u0442\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\iteratorgenerationmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|c:\\users\\user\\source\\repos\\gamejamgenerator\\gamejam-random-world-generation\\gamejamgenerator\\\u0438\u0442\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\mazesolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|solutionrelative:gamejamgenerator\\\u0438\u0442\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\mazesolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|c:\\users\\user\\source\\repos\\gamejamgenerator\\gamejam-random-world-generation\\gamejamgenerator\\generationmodules\\generationmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|solutionrelative:gamejamgenerator\\generationmodules\\generationmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|c:\\users\\user\\source\\repos\\gamejamgenerator\\gamejam-random-world-generation\\gamejamgenerator\\grids\\igrid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|solutionrelative:gamejamgenerator\\grids\\igrid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|c:\\users\\user\\source\\repos\\gamejamgenerator\\gamejam-random-world-generation\\gamejamgenerator\\generationmodules\\components\\generationmodulecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|solutionrelative:gamejamgenerator\\generationmodules\\components\\generationmodulecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|c:\\users\\user\\source\\repos\\gamejamgenerator\\gamejam-random-world-generation\\gamejamgenerator\\generationmodules\\components\\componentbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|solutionrelative:gamejamgenerator\\generationmodules\\components\\componentbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|c:\\users\\user\\source\\repos\\gamejamgenerator\\gamejam-random-world-generation\\gamejamgenerator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|solutionrelative:gamejamgenerator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|c:\\users\\user\\source\\repos\\gamejamgenerator\\gamejam-random-world-generation\\gamejamgenerator\\levelpatterns\\gamegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|solutionrelative:gamejamgenerator\\levelpatterns\\gamegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|c:\\users\\user\\source\\repos\\gamejamgenerator\\gamejam-random-world-generation\\gamejamgenerator\\generationmodules\\sectoralholepuncher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|solutionrelative:gamejamgenerator\\generationmodules\\sectoralholepuncher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|c:\\users\\user\\source\\repos\\gamejamgenerator\\gamejam-random-world-generation\\gamejamgenerator\\levelpatterns\\closedexit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|solutionrelative:gamejamgenerator\\levelpatterns\\closedexit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|c:\\users\\user\\source\\repos\\gamejamgenerator\\gamejam-random-world-generation\\gamejamgenerator\\brushes\\simplebrush.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|solutionrelative:gamejamgenerator\\brushes\\simplebrush.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|c:\\users\\user\\source\\repos\\gamejamgenerator\\gamejam-random-world-generation\\gamejamgenerator\\levelpatterns\\generatorfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|solutionrelative:gamejamgenerator\\levelpatterns\\generatorfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|c:\\users\\user\\source\\repos\\gamejamgenerator\\gamejam-random-world-generation\\gamejamgenerator\\levelpatterns\\noiseforest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|solutionrelative:gamejamgenerator\\levelpatterns\\noiseforest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|c:\\users\\user\\source\\repos\\gamejamgenerator\\gamejam-random-world-generation\\gamejamgenerator\\\u0438\u0442\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\iteratorgenerationmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC91F3B0-B21F-4261-9E3C-B4A34A894CD6}|GameJamGenerator\\GameJamGenerator.csproj|solutionrelative:gamejamgenerator\\\u0438\u0442\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\iteratorgenerationmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,168 +42,80 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ComponentBase.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\GenerationModules\\Components\\ComponentBase.cs",
+              "RelativeDocumentMoniker": "GameJamGenerator\\GenerationModules\\Components\\ComponentBase.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\GenerationModules\\Components\\ComponentBase.cs",
+              "RelativeToolTip": "GameJamGenerator\\GenerationModules\\Components\\ComponentBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-12T06:31:47.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SimpleItarationMethods.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\GridExtentions\\SimpleItarationMethods.cs",
-              "RelativeDocumentMoniker": "GameJamGenerator\\GridExtentions\\SimpleItarationMethods.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\GridExtentions\\SimpleItarationMethods.cs",
-              "RelativeToolTip": "GameJamGenerator\\GridExtentions\\SimpleItarationMethods.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAAAB8AAAA3AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-10T05:36:02.517Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Grid.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\Grids\\Grid.cs",
-              "RelativeDocumentMoniker": "GameJamGenerator\\Grids\\Grid.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\Grids\\Grid.cs",
-              "RelativeToolTip": "GameJamGenerator\\Grids\\Grid.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAB4AAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-10T03:58:11.126Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "GenerationModule.cs",
               "DocumentMoniker": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\GenerationModules\\GenerationModule.cs",
               "RelativeDocumentMoniker": "GameJamGenerator\\GenerationModules\\GenerationModule.cs",
               "ToolTip": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\GenerationModules\\GenerationModule.cs",
               "RelativeToolTip": "GameJamGenerator\\GenerationModules\\GenerationModule.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAaAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACsAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-08T22:03:56.932Z",
+              "WhenOpened": "2024-07-12T06:25:11.659Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IteratorGenerationModule.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\\u0418\u0442\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\IteratorGenerationModule.cs",
-              "RelativeDocumentMoniker": "GameJamGenerator\\\u0418\u0442\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\IteratorGenerationModule.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\\u0418\u0442\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\IteratorGenerationModule.cs",
-              "RelativeToolTip": "GameJamGenerator\\\u0418\u0442\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\IteratorGenerationModule.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAYAAAA",
+              "DocumentIndex": 1,
+              "Title": "GenerationModuleComponent.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\GenerationModules\\Components\\GenerationModuleComponent.cs",
+              "RelativeDocumentMoniker": "GameJamGenerator\\GenerationModules\\Components\\GenerationModuleComponent.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\GenerationModules\\Components\\GenerationModuleComponent.cs",
+              "RelativeToolTip": "GameJamGenerator\\GenerationModules\\Components\\GenerationModuleComponent.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAB5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-10T05:05:28.37Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IGrid.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\Grids\\IGrid.cs",
-              "RelativeDocumentMoniker": "GameJamGenerator\\Grids\\IGrid.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\Grids\\IGrid.cs",
-              "RelativeToolTip": "GameJamGenerator\\Grids\\IGrid.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-10T04:00:40.169Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "SectoralHolePuncher.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\GenerationModules\\SectoralHolePuncher.cs",
-              "RelativeDocumentMoniker": "GameJamGenerator\\GenerationModules\\SectoralHolePuncher.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\GenerationModules\\SectoralHolePuncher.cs",
-              "RelativeToolTip": "GameJamGenerator\\GenerationModules\\SectoralHolePuncher.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAhwBgAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-10T05:09:17.51Z",
+              "WhenOpened": "2024-07-12T04:04:02.99Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "MazeSolver.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\\u0418\u0442\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\MazeSolver.cs",
-              "RelativeDocumentMoniker": "GameJamGenerator\\\u0418\u0442\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\MazeSolver.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\\u0418\u0442\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\MazeSolver.cs",
-              "RelativeToolTip": "GameJamGenerator\\\u0418\u0442\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\MazeSolver.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAhwBEAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-10T05:09:03.425Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\Program.cs",
               "RelativeDocumentMoniker": "GameJamGenerator\\Program.cs",
               "ToolTip": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\Program.cs",
               "RelativeToolTip": "GameJamGenerator\\Program.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAAAAIAAAAMAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-05T22:42:59.577Z",
+              "WhenOpened": "2024-07-12T03:05:26.461Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GameGenerator.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\LevelPatterns\\GameGenerator.cs",
-              "RelativeDocumentMoniker": "GameJamGenerator\\LevelPatterns\\GameGenerator.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\LevelPatterns\\GameGenerator.cs",
-              "RelativeToolTip": "GameJamGenerator\\LevelPatterns\\GameGenerator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-07T03:44:08.977Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ClosedExit.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\LevelPatterns\\ClosedExit.cs",
-              "RelativeDocumentMoniker": "GameJamGenerator\\LevelPatterns\\ClosedExit.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\LevelPatterns\\ClosedExit.cs",
-              "RelativeToolTip": "GameJamGenerator\\LevelPatterns\\ClosedExit.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-05T22:44:58.336Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "SimpleBrush.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\brushes\\SimpleBrush.cs",
-              "RelativeDocumentMoniker": "GameJamGenerator\\brushes\\SimpleBrush.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\brushes\\SimpleBrush.cs",
-              "RelativeToolTip": "GameJamGenerator\\brushes\\SimpleBrush.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-07T03:30:55.557Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 4,
               "Title": "NoiseForest.cs",
               "DocumentMoniker": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\LevelPatterns\\NoiseForest.cs",
               "RelativeDocumentMoniker": "GameJamGenerator\\LevelPatterns\\NoiseForest.cs",
               "ToolTip": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\LevelPatterns\\NoiseForest.cs",
               "RelativeToolTip": "GameJamGenerator\\LevelPatterns\\NoiseForest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAApAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-07T01:33:22.57Z"
+              "WhenOpened": "2024-07-12T07:32:22.002Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "GeneratorFactory.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\LevelPatterns\\GeneratorFactory.cs",
-              "RelativeDocumentMoniker": "GameJamGenerator\\LevelPatterns\\GeneratorFactory.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\LevelPatterns\\GeneratorFactory.cs",
-              "RelativeToolTip": "GameJamGenerator\\LevelPatterns\\GeneratorFactory.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAABMAAAA",
+              "DocumentIndex": 5,
+              "Title": "IteratorGenerationModule.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\\u0418\u0442\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\IteratorGenerationModule.cs",
+              "RelativeDocumentMoniker": "GameJamGenerator\\\u0418\u0442\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\IteratorGenerationModule.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\GameJamGenerator\\GameJam-random-world-generation\\GameJamGenerator\\\u0418\u0442\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\IteratorGenerationModule.cs",
+              "RelativeToolTip": "GameJamGenerator\\\u0418\u0442\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\IteratorGenerationModule.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-06T18:20:02.138Z"
+              "WhenOpened": "2024-07-12T02:52:27.535Z"
             }
           ]
         }

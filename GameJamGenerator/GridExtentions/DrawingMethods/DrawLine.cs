@@ -9,8 +9,8 @@
         for (int i = 0; i <= distance; i++)
         {
             Vector2Int currentCell = new(startPos + direction * i);
-            if (currentCell.x != lastCell.x)
-                grid[new(lastCell.x, currentCell.y)] = drawingObject;
+            if (currentCell == lastCell) continue;
+            if (currentCell.x != lastCell.x) grid[new(lastCell.x, currentCell.y)] = drawingObject;
             grid[currentCell] = drawingObject;
             lastCell = currentCell;
         }
