@@ -2,6 +2,6 @@
 {
     protected ActionStopMode actionStopMode;
     protected Direction direction = Direction.Right;
-    protected override void Iterate() => Iterate(new());
-    protected void Iterate(List<int> ignoreList = null) => iteratingGrid.Iterate(Action, direction, ignoreList, actionStopMode);
+    protected override void Iterate() => Iterate();
+    protected void Iterate(List<int>? ignoreList = null) => iteratingGrid.Iterate(Action, direction, ignoreList, actionStopMode);
 }

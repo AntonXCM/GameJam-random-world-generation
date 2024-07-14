@@ -1,6 +1,6 @@
 ﻿public interface IComponent<in THolder>
 {
-    object Holder { get; }
+    object HolderObject { get; }
     void OnAdd(THolder holder);
     void OnRemove();
 }

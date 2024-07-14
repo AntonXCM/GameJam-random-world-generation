@@ -1,14 +1,8 @@
-﻿public abstract class MazeSolver<T> : BucketIterator<T>
+﻿public abstract class MazeSolver<T>(Vector2Int startPos, Vector2Int endPos, Func<T, int> tileWeight) : BucketIterator<T>([startPos], [])
 {
-    readonly protected Vector2Int startPos, endPos;
-    readonly Func<T, int> tileWeight;
+    readonly protected Vector2Int startPos = startPos, endPos = endPos;
     Matrix hardnessToGetPoint;
-    public MazeSolver(Vector2Int startPos, Vector2Int endPos, Func<T, int> tileWeight) : base([startPos], [])
-    {
-        this.startPos = startPos;
-        this.endPos = endPos;
-        this.tileWeight = tileWeight;
-    }
+
     protected override void Initialze(ref IGrid<T> grid)
     {
         base.Initialze(ref grid);

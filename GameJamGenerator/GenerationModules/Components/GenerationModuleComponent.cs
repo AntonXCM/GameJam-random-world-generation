@@ -14,7 +14,7 @@ public abstract class GenerationModuleComponent<T, THolder> : ComponentBase<THol
     public override void OnRemove()
     {
         base.OnRemove();
-        if (OnDrawTile != null) holder.OnDrawTile -= OnDrawTile;
+        if (OnDrawTile != null) Holder.OnDrawTile -= OnDrawTile;
     }
     protected void onAdd(THolder holder) => OnAdd(holder);
 }
@@ -37,8 +37,8 @@ public abstract class IteratorGenerationModuleComponent<T, THolder> : Generation
     public override void OnRemove()
     {
         base.OnRemove();
-        if (BeforeIterationAction != null) holder.BeforeIterationAction -= BeforeIterationAction;
-        if (AfterIterationAction != null) holder.AfterIterationAction -= AfterIterationAction;
+        if (BeforeIterationAction != null) Holder.BeforeIterationAction -= BeforeIterationAction;
+        if (AfterIterationAction != null) Holder.AfterIterationAction -= AfterIterationAction;
     }
 }
 public abstract class IteratorGenerationModuleComponent<T> : IteratorGenerationModuleComponent<T, IteratorGenerationModule<T>> { }

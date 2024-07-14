@@ -1,11 +1,7 @@
-﻿public class SeparateComponentHolder<T> : SeparateComponentHolder<T, IComponent<T>>
+﻿public class SeparateComponentHolder<T>(T owner) : SeparateComponentHolder<T, IComponent<T>>(owner){}
+public class SeparateComponentHolder<T, ComponenT>(T owner) : SeparateComponentHolder(owner), IComponentHolder<ComponenT> where ComponenT : IComponent<T>
 {
-    public SeparateComponentHolder(T owner) : base(owner) { }
-}
-public class SeparateComponentHolder<T, ComponenT> : SeparateComponentHolder, IComponentHolder<ComponenT> where ComponenT : IComponent<T>
-{
-    List<ComponenT> Components = [];
-    public SeparateComponentHolder(T owner) : base(owner) { }
+    readonly List<ComponenT> Components = [];
 
     public override void AddComponent<TOwner>(IComponent<TOwner> component)
     {
@@ -22,7 +18,7 @@ public class SeparateComponentHolder<T, ComponenT> : SeparateComponentHolder, IC
     public override void RemoveComponent<TOwner>(ComponentBase<TOwner> component) => RemoveComponent(component as ComponentBase<T>);
     public void RemoveComponent(ComponenT component)
     {
-        if (!Components.Contains(component)) throw new InvalidOperationException($"Невозможно удалить {(component.Holder == null ? "ничей" : "чужой")} компонент!");
+        if (!Components.Contains(component)) throw new InvalidOperationException($"Невозможно удалить {(component.HolderObject == null ? "ничей" : "чужой")} компонент!");
         Components.Remove(component);
         component.OnRemove();
     }
@@ -39,6 +35,7 @@ public abstract class SeparateComponentHolder
     }
 
     public static SeparateComponentHolder GetFromObject<TOwner>(TOwner owner) => new SeparateComponentHolder<TOwner>(owner);
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Удалите неиспользуемый параметр", Justification = "<Так надо>")]
     public static SeparateComponentHolder GetFromObject<TOwner, ComponenT>(TOwner owner, ComponenT componentType) where ComponenT : ComponentBase<TOwner> => new SeparateComponentHolder<TOwner, ComponenT>(owner);
     public virtual void AddComponent<TOwner>(IComponent<TOwner> component)
     {

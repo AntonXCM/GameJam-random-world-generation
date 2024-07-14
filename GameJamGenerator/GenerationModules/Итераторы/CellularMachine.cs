@@ -9,9 +9,9 @@
 
     protected override void Iterate()
     {
-        Parallel.For(0, rows, i =>
+        Parallel.For(0, Rows, i =>
         {
-            Parallel.For(0, cols, j =>
+            Parallel.For(0, Cols, j =>
             {
                 Action(new(i, j));
             });

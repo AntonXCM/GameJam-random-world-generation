@@ -1,6 +1,4 @@
-﻿public class SeparateGenerationComponentHolder<ModuleT> : SeparateComponentHolder<ModuleT, IComponent<ModuleT>>
+﻿public class SeparateGenerationComponentHolder<ModuleT>(ModuleT owner) : SeparateComponentHolder<ModuleT, IComponent<ModuleT>>(owner)
 {
-    public SeparateGenerationComponentHolder(ModuleT owner) : base(owner)
-    { }
-    public static SeparateGenerationComponentHolder<TModule> GetFromOwner<TModule>(TModule module) => new SeparateGenerationComponentHolder<TModule>(module);
+    public static SeparateGenerationComponentHolder<TModule> GetFromOwner<TModule>(TModule module) => new(module);
 }

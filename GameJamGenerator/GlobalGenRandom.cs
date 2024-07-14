@@ -1,6 +1,6 @@
 ﻿public static class GlobalGenRandom
 {
-    static Random random;
+    static Random random = new((int)DateTime.Now.ToBinary());
     public static double NextDouble() => random.NextDouble();
     public static float NextFloat() => (float)random.NextDouble();
     public static bool NextBool() => random.Next(0, 2) == 1;

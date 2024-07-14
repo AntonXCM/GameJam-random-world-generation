@@ -27,7 +27,7 @@ public class SectorLimitComponent<T> : IteratorGenerationModuleComponent<T>
     };
     public override IteratorGenerationModule<T>.AfterIterationActionDelegate AfterIterationAction => () =>
         {
-            holder.OnDrawTile -= OnDrawTile;
+            Holder.OnDrawTile -= OnDrawTile;
             Parallel.For(0, affectedPositionsInSectors.Count, j =>
             {
                 List<(Vector2Int pos, T lastValue)> sector;
@@ -46,7 +46,7 @@ public class SectorLimitComponent<T> : IteratorGenerationModuleComponent<T>
                 Parallel.For(0, Math.Min(sectorUndoMax, sector.Count), I =>
                 {
                     int i = (int)I;
-                    holder.DrawTile(sector[i].pos, sector[i].lastValue);
+                    Holder.DrawTile(sector[i].pos, sector[i].lastValue);
                 });
             });
         };

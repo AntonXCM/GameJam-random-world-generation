@@ -1,13 +1,7 @@
-﻿public class HolePuncher<T> : CellularMachine<T>
+﻿public class HolePuncher<T>(T empty, T block, T hole) : CellularMachine<T>
 {
-    protected T Empty, Block, Hole;
+    protected T Empty = empty, Block = block, Hole = hole;
 
-    public HolePuncher(T empty, T block, T hole)
-    {
-        Empty = empty;
-        Block = block;
-        Hole = hole;
-    }
     public override bool Action(Vector2Int pos)
     {
         bool success = TryToMakeHole(pos);
@@ -15,8 +9,8 @@
         else FailedToMakeHole?.Invoke(pos.x, pos.y);
         return success;
     }
-    public event Action<int, int> SuccededToMakeHole;
-    public event Action<int, int> FailedToMakeHole;
+    public event Action<int, int>? SuccededToMakeHole;
+    public event Action<int, int>? FailedToMakeHole;
     public virtual bool TryToMakeHole(Vector2Int pos)
     {
         if (!inputGrid[pos].Equals(Block)) return false;

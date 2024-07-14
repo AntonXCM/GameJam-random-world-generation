@@ -7,7 +7,8 @@ public enum Tile
 public class Grid : IGrid<Tile>
 {
     private Tile[,] grid;
-    public Grid(Tile[,] grid) => this.grid = grid;
+    public Grid(Tile[,] grid) => ReplaceGrid(grid);
+
     public Grid(int width, int height) : this(width, height, Tile.empty) { }
     public Grid(int width, int height, Tile baseValue) : this(new Tile[width, height])
     {
@@ -15,8 +16,8 @@ public class Grid : IGrid<Tile>
     }
     public Tile this[int row, int col] { get => grid[row, col]; set => grid[row, col] = value; }
 
-    public int Width { get => grid.GetLength(0); }
-    public int Height { get => grid.GetLength(1); }
+    public int Width { get; private set; }
+    public int Height { get; private set; }
 
     public static readonly Dictionary<Tile, (char, char)> tileSymbols = new([
         new(Tile.empty, (' ', ' ')),
@@ -38,7 +39,12 @@ public class Grid : IGrid<Tile>
         }
         return picture.ToString();
     }
-
+    public void ReplaceGrid(Tile[,] newGrid)
+    {
+        grid = newGrid ?? throw new ArgumentNullException("Ну давай, тогда, просто удали объект)");
+        Width = grid.GetLength(0);
+        Height = grid.GetLength(1);
+    }
     public object Clone() => new Grid(grid);
     IEnumerator IEnumerable.GetEnumerator() => grid.GetEnumerator();
     public IEnumerator<Tile> GetEnumerator() => grid.Cast<Tile>().GetEnumerator();

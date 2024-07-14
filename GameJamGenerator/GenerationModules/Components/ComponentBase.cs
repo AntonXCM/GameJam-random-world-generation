@@ -1,10 +1,10 @@
 ﻿public class ComponentBase<THolder> : IDisposable, IComponent<THolder>
 {
-    public THolder holder { get; private set; }
+    public THolder Holder { get; private set; }
 
-    public object Holder => holder;
+    public object HolderObject => Holder;
 
     public virtual void Dispose() { }
-    public virtual void OnAdd(THolder holder) => this.holder = holder;
+    public virtual void OnAdd(THolder holder) => Holder = holder;
     public virtual void OnRemove() => Dispose();
 }

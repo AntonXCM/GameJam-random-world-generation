@@ -5,11 +5,11 @@ public abstract class GenerationModule<T>
     protected IteratingGrid iteratingGrid;
     protected class IteratingGrid : IGrid<T>
     {
-        private IGrid<T> grid;
+        private readonly IGrid<T> grid;
         /// <summary>
         /// Я ценю инкапсуляцию, так что, мы можем получить только копию самой сетки. Поплачь об этом >:^)
         /// </summary>
-        public IGrid<T> lookAtGrid => (IGrid<T>)grid.Clone();
+        public IGrid<T> LookAtGrid => (IGrid<T>)grid.Clone();
         public int Width { get; private set; }
         public int Height { get; private set; }
         public IteratingGrid(IGrid<T> iteratingGrid, ref OnDrawTileDelegate onDrawTile)
@@ -38,17 +38,17 @@ public abstract class GenerationModule<T>
     /// <summary>
     /// Я ценю инкапсуляцию, так что, мы можем получить только копию самой сетки. Поплачь об этом >:^)
     /// </summary>
-    public IGrid<T> LookAtGrid => iteratingGrid.lookAtGrid;
-    protected int rows { get; private set; }
-    protected int cols { get; private set; }
+    public IGrid<T> LookAtGrid => iteratingGrid.LookAtGrid;
+    protected int Rows { get; private set; }
+    protected int Cols { get; private set; }
     public SeparateComponentHolder componentHolder;
     public GenerationModule() => componentHolder = SeparateComponentHolder.GetFromObject(this);
     public virtual void Generate(ref IGrid<T> grid) => Initialze(ref grid);
     protected virtual void Initialze(ref IGrid<T> grid)
     {
         iteratingGrid = new(grid, ref OnDrawTile);
-        rows = grid.Width;
-        cols = grid.Height;
+        Rows = grid.Width;
+        Cols = grid.Height;
     }
     public void DrawTile(Vector2Int pos, T value) => iteratingGrid.DrawTile(pos, value);
     public delegate void OnDrawTileDelegate(Vector2Int pos, T value, T lastValue);

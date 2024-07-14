@@ -1,9 +1,6 @@
-﻿public class SpecificReplacer<T> : SimpleBrush<T>
+﻿public class SpecificReplacer<T>(T value, T[] valuesToReplace) : SimpleBrush<T>(value)
 {
-    T[] valuesToReplace;
-    public SpecificReplacer(T value, T[] valuesToReplace) : base(value)
-    {
-        this.valuesToReplace = valuesToReplace;
-    }
+    readonly T[] valuesToReplace = valuesToReplace;
+
     public override T GetValue(int x, int y, T current) => valuesToReplace.Contains(current) ? base.GetValue(x, y, current) : current;
 }

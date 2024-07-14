@@ -5,7 +5,7 @@
         Vector2 pos;
         do
         {
-            Vector2 random = Vector2.random;
+            Vector2 random = Vector2.Random;
             random.Magnitude = range;
             pos = random + (Vector2)center;
         } while (pos.x < 0 || Math.Round(pos.x) >= grid.Width || pos.y < 0 || Math.Round(pos.y) >= grid.Height || !IsReachable(pos) || !availableTiles.Contains(grid[pos]));

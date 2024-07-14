@@ -24,7 +24,7 @@
     private class TilePositionGetter<T> : SimpleIteratorGenerationModule<T>
     {
         public Vector2Int tilePosition;
-        T tile;
+        readonly T tile;
 
         public TilePositionGetter(T tile)
         {

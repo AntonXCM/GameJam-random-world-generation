@@ -8,10 +8,10 @@
     public static Vector2Int[] GetNearFourCells(this Vector2Int pos, Vector2Int minBound, Vector2Int maxBound)
     {
         List<Vector2Int> cells = [];
-        if (pos.x != maxBound.x) cells.Add(pos + Vector2Int.right);
-        if (pos.x != minBound.x) cells.Add(pos + Vector2Int.left);
-        if (pos.y != maxBound.y) cells.Add(pos + Vector2Int.down);
-        if (pos.y != minBound.y) cells.Add(pos + Vector2Int.up);
-        return cells.ToArray();
+        if (pos.x != maxBound.x) cells.Add(pos + Vector2Int.Right);
+        if (pos.x != minBound.x) cells.Add(pos + Vector2Int.Left);
+        if (pos.y != maxBound.y) cells.Add(pos + Vector2Int.Down);
+        if (pos.y != minBound.y) cells.Add(pos + Vector2Int.Up);
+        return [..cells];
     }
 }

@@ -1,32 +1,28 @@
-﻿public struct Vector2
+﻿public struct Vector2(float x, float y)
 {
-    public float x, y;
-    public static Vector2 random => new(GlobalGenRandom.NextFloat() * (GlobalGenRandom.NextBool() ? -1 : 1), GlobalGenRandom.NextFloat() * (GlobalGenRandom.NextBool() ? -1 : 1));
+    public float x = x, y = y;
+    public static Vector2 Random => new(GlobalGenRandom.NextFloat() * (GlobalGenRandom.NextBool() ? -1 : 1), GlobalGenRandom.NextFloat() * (GlobalGenRandom.NextBool() ? -1 : 1));
     public double Magnitude
     {
-        get => Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
+        readonly get => Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
         set
         {
-            double multipliar = value / Magnitude;
-            this *= multipliar;
+            double multiplier = value / Magnitude;
+            this *= multiplier;
         }
     }
-    public int Dimensions => 2;
-    public Vector2(float x, float y)
-    {
-        this.x = x;
-        this.y = y;
-    }
+    public const int Dimensions = 2;
+
     public float this[int dimension]
     {
-        get
+        readonly get
         {
-            switch (dimension)
+            return dimension switch
             {
-                case 0: return x;
-                case 1: return y;
-                default: throw new ArgumentOutOfRangeException("Есть только X и Y");
-            }
+                0 => x,
+                1 => y,
+                _ => throw new ArgumentOutOfRangeException("Есть только X и Y"),
+            };
         }
         set
         {
@@ -52,8 +48,8 @@
             this /= Math.Abs(minValue);
     }
     public static implicit operator Vector2(Vector2Int vector) => new(vector.x, vector.y);
-    public static Vector2 operator +(Vector2 a, Vector2 b) => new Vector2(a.x + b.x, a.y + b.y);
-    public static Vector2 operator -(Vector2 a, Vector2 b) => new Vector2(a.x - b.x, a.y - b.y);
-    public static Vector2 operator *(Vector2 a, double b) => new Vector2((float)(a.x * b), (float)(a.y * b));
-    public static Vector2 operator /(Vector2 a, double b) => new Vector2((float)(a.x / b), (float)(a.y / b));
+    public static Vector2 operator +(Vector2 a, Vector2 b) => new(a.x + b.x, a.y + b.y);
+    public static Vector2 operator -(Vector2 a, Vector2 b) => new(a.x - b.x, a.y - b.y);
+    public static Vector2 operator *(Vector2 a, double b) => new((float)(a.x * b), (float)(a.y * b));
+    public static Vector2 operator /(Vector2 a, double b) => new((float)(a.x / b), (float)(a.y / b));
 }

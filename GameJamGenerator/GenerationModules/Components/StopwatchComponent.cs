@@ -2,11 +2,11 @@
 
 public class StopwatchComponent<T> : IteratorGenerationModuleComponent<T>
 {
-    Stopwatch stopwatch = new();
+    readonly Stopwatch stopwatch = new();
     public override IteratorGenerationModule<T>.BeforeIterationActionDelegate BeforeIterationAction => stopwatch.Start;
     public override IteratorGenerationModule<T>.AfterIterationActionDelegate AfterIterationAction => () =>
     {
         stopwatch.Stop();
-        Console.WriteLine($"Модуль генерации {holder.GetType().Name} закончил за {stopwatch.Elapsed} секунд");
+        Console.WriteLine($"Модуль генерации {Holder.GetType().Name} закончил за {stopwatch.Elapsed} секунд");
     };
 }
