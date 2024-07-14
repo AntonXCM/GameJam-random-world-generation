@@ -50,6 +50,7 @@ public abstract class GenerationModule<T>
         rows = grid.Width;
         cols = grid.Height;
     }
+    public void DrawTile(Vector2Int pos, T value) => iteratingGrid.DrawTile(pos,value);
     public delegate void OnDrawTileDelegate(Vector2Int pos, T value, T lastValue);
     public event OnDrawTileDelegate OnDrawTile;
 }

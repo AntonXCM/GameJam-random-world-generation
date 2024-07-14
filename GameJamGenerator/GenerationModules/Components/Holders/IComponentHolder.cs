@@ -1,5 +1,5 @@
-﻿public interface IComponentHolder<This>
+﻿public interface IComponentHolder<ComponenT> 
 {
-    void AddComponent<ComponenT>(ComponenT component) where ComponenT : ComponentBase<This>;
-    void RemoveComponent<ComponenT>(ComponenT component) where ComponenT : ComponentBase<This>;
+    void AddComponent(ComponenT component);
+    void RemoveComponent(ComponenT component);
 }
