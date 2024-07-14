@@ -1,18 +1,16 @@
-﻿public abstract class IteratorGenerationModule<T> : iGenerationModule<T>
+﻿public abstract class IteratorGenerationModule<T> : GenerationModule<T>
 {
-    public virtual void Generate(ref IGrid<T> grid)
+    public override void Generate(ref IGrid<T> grid)
     {
-        Initialze(ref grid);
+        base.Generate(ref grid);
+        BeforeIterationAction?.Invoke();
         Iterate();
-    }
-    protected virtual void Initialze(ref IGrid<T> grid)
-    {
-        iteratingGrid = grid;
-        rows = iteratingGrid.Width;
-        cols = iteratingGrid.Height;
+         AfterIterationAction?.Invoke();
     }
     protected abstract void Iterate();
-    internal abstract bool? Action(Vector2Int pos);
-    protected IGrid<T> iteratingGrid;
-    protected int rows, cols;
+    public abstract bool Action(Vector2Int pos);
+    public delegate void BeforeIterationActionDelegate();
+    public delegate void  AfterIterationActionDelegate();
+    public event BeforeIterationActionDelegate BeforeIterationAction;
+    public event  AfterIterationActionDelegate  AfterIterationAction;
 }

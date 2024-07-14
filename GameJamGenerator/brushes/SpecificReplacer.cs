@@ -1,4 +1,4 @@
-﻿internal class SpecificReplacer<T> : SimpleBrush<T>
+﻿public class SpecificReplacer<T> : SimpleBrush<T>
 {
     T[] valuesToReplace;
     public SpecificReplacer(T value, T[] valuesToReplace) : base(value)

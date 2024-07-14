@@ -1,4 +1,4 @@
-﻿internal struct Vector2Int
+﻿public struct Vector2Int
 {
     public static Vector2Int Zero => new(0, 0);
     public static Vector2Int one => new(1, 1);

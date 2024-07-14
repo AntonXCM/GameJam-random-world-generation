@@ -1,12 +1,9 @@
 ﻿
-internal class BucketFill<T> : BucketIterator<T>
+public class BucketFill<T> : BucketIterator<T>
 {
     protected IBrush<T> Brush;
     protected T[] fillingValues;
-    public BucketFill(List<Vector2Int> positionsToCheck, List<Vector2Int> notAllowedPositions,IBrush<T> brush) : base(positionsToCheck, notAllowedPositions)
-    {
-        Brush = brush;
-    }
+    public BucketFill(List<Vector2Int> positionsToCheck, List<Vector2Int> notAllowedPositions, IBrush<T> brush) : base(positionsToCheck, notAllowedPositions) => Brush = brush;
     protected override void Initialze(ref IGrid<T> grid)
     {
         base.Initialze(ref grid);
@@ -14,10 +11,10 @@ internal class BucketFill<T> : BucketIterator<T>
         foreach (Vector2Int position in positionsToCheck) fillingValues.Add(grid[position]);
         this.fillingValues = fillingValues.ToArray();
     }
-    internal override bool? Action(Vector2Int pos)
+    public override bool Action(Vector2Int pos)
     {
-        iteratingGrid[pos] = Brush.GetValue(pos.x,pos.y, iteratingGrid[pos]);
+        iteratingGrid.DrawTile(pos, Brush);
         return false;
     }
-    internal override bool CheckPosition(Vector2Int pos) => base.CheckPosition(pos) && fillingValues.Contains(iteratingGrid[pos]);
+    public override bool CheckPosition(Vector2Int pos) => base.CheckPosition(pos) && fillingValues.Contains(iteratingGrid[pos]);
 }

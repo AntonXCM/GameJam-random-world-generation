@@ -1,4 +1,4 @@
-﻿internal static partial class GridDrawingMethods
+﻿public static partial class GridDrawingMethods
 {
     public static void PlaceInRadius<T>(this IGrid<T> grid, T value, Vector2Int center, int range, T[] availableTiles)
     {

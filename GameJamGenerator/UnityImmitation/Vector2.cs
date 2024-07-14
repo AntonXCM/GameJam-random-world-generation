@@ -1,4 +1,4 @@
-﻿internal struct Vector2
+﻿public struct Vector2
 {
     public float x, y;
     public static Vector2 random => new(GlobalGenRandom.NextFloat() * (GlobalGenRandom.NextBool() ? -1 : 1), GlobalGenRandom.NextFloat() * (GlobalGenRandom.NextBool() ? -1 : 1));
