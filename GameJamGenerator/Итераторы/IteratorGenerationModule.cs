@@ -5,12 +5,12 @@
         base.Generate(ref grid);
         BeforeIterationAction?.Invoke();
         Iterate();
-         AfterIterationAction?.Invoke();
+        AfterIterationAction?.Invoke();
     }
     protected abstract void Iterate();
     public abstract bool Action(Vector2Int pos);
     public delegate void BeforeIterationActionDelegate();
-    public delegate void  AfterIterationActionDelegate();
+    public delegate void AfterIterationActionDelegate();
     public event BeforeIterationActionDelegate BeforeIterationAction;
-    public event  AfterIterationActionDelegate  AfterIterationAction;
+    public event AfterIterationActionDelegate AfterIterationAction;
 }

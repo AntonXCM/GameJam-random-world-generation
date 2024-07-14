@@ -28,7 +28,7 @@ public abstract class GenerationModule<T>
         }
         public void DrawTile(Vector2Int pos, IBrush<T> brush) => DrawTile(pos, brush.GetValue(pos, grid[pos]));
 
-        public T this[int row, int col] { get => grid[row,col]; set => this[new(row,col)] = value; }
+        public T this[int row, int col] { get => grid[row, col]; set => this[new(row, col)] = value; }
         public T this[Vector2Int pos] { get => grid[pos]; set => DrawTile(pos, value); }
 
         public object Clone() => new IteratingGrid(grid, ref OnDrawTile);
@@ -50,7 +50,7 @@ public abstract class GenerationModule<T>
         rows = grid.Width;
         cols = grid.Height;
     }
-    public void DrawTile(Vector2Int pos, T value) => iteratingGrid.DrawTile(pos,value);
+    public void DrawTile(Vector2Int pos, T value) => iteratingGrid.DrawTile(pos, value);
     public delegate void OnDrawTileDelegate(Vector2Int pos, T value, T lastValue);
     public event OnDrawTileDelegate OnDrawTile;
 }

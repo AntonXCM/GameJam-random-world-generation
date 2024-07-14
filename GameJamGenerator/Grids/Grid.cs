@@ -8,28 +8,28 @@ public class Grid : IGrid<Tile>
 {
     private Tile[,] grid;
     public Grid(Tile[,] grid) => this.grid = grid;
-    public Grid(int width, int height) : this(width, height,Tile.empty){}
-    public Grid(int width, int height, Tile baseValue) : this(new Tile[width, height]) 
+    public Grid(int width, int height) : this(width, height, Tile.empty) { }
+    public Grid(int width, int height, Tile baseValue) : this(new Tile[width, height])
     {
-        this.Iterate((pos) =>{(this as IGrid<Tile>)[pos] = baseValue; return false;});
+        this.Iterate((pos) => { (this as IGrid<Tile>)[pos] = baseValue; return false; });
     }
     public Tile this[int row, int col] { get => grid[row, col]; set => grid[row, col] = value; }
 
     public int Width { get => grid.GetLength(0); }
     public int Height { get => grid.GetLength(1); }
-    
+
     public static readonly Dictionary<Tile, (char, char)> tileSymbols = new([
-        new(Tile.empty, (' ', ' ')), 
+        new(Tile.empty, (' ', ' ')),
         new(Tile.wall, ('█', '█')),
         new(Tile.key, ('"', '0')),
         new(Tile.door, ('I', 'I')),
         new(Tile.hp, ('▝', '▞')),
         new(Tile.player, ('7', 'Г')),
         new(Tile.debug, ('.', ' '))
-        ]); 
+        ]);
     public override string ToString()
     {
-        StringBuilder picture = new((Width+1) * Height);
+        StringBuilder picture = new((Width + 1) * Height);
         for (int j = 0; j < Height; j++)
         {
             for (int i = 0; i < Width; i++)
@@ -41,5 +41,5 @@ public class Grid : IGrid<Tile>
 
     public object Clone() => new Grid(grid);
     IEnumerator IEnumerable.GetEnumerator() => grid.GetEnumerator();
-    public IEnumerator<Tile> GetEnumerator() =>grid.Cast<Tile>().GetEnumerator();
+    public IEnumerator<Tile> GetEnumerator() => grid.Cast<Tile>().GetEnumerator();
 }

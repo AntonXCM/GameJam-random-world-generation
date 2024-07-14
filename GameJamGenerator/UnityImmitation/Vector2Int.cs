@@ -5,7 +5,7 @@
     public static Vector2Int left => new(-1, 0);
     public static Vector2Int right => new(1, 0);
     public static Vector2Int up => new(0, -1);
-    public static Vector2Int down => new (0, 1);
+    public static Vector2Int down => new(0, 1);
     public int x;
     public int y;
     public double magnitude
@@ -18,12 +18,12 @@
         this.y = y;
     }
     public static implicit operator Vector2Int(Vector2 vector) => new((int)Math.Round(vector.x), (int)Math.Round(vector.y));
-    public Vector2Int(Vector2 vector) : this((int)vector.x, (int)vector.y) {}
+    public Vector2Int(Vector2 vector) : this((int)vector.x, (int)vector.y) { }
     public static Vector2Int operator +(Vector2Int a, Vector2Int b) => new Vector2Int(a.x + b.x, a.y + b.y);
     public static Vector2Int operator -(Vector2Int a, Vector2Int b) => new Vector2Int(a.x - b.x, a.y - b.y);
     public static Vector2Int operator *(Vector2Int a, int b) => new Vector2Int(a.x * b, a.y * b);
     public static Vector2Int operator /(Vector2Int a, int b) => new Vector2Int(a.x / b, a.y / b);
     public static Vector2Int operator /(Vector2Int a, Vector2Int b) => new Vector2Int(a.x / b.x, a.y / b.y);
-    public static bool operator ==(Vector2Int a, Vector2Int b) => a.x==b.x&&a.y==b.y;
-    public static bool operator !=(Vector2Int a, Vector2Int b) => a.x!=b.x||a.y!=b.y;
+    public static bool operator ==(Vector2Int a, Vector2Int b) => a.x == b.x && a.y == b.y;
+    public static bool operator !=(Vector2Int a, Vector2Int b) => a.x != b.x || a.y != b.y;
 }

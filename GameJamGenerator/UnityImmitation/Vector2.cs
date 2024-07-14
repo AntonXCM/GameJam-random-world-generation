@@ -48,10 +48,10 @@
         float minValue = Math.Abs(x);
         if (Math.Abs(y) > minValue && y != 0)
             minValue = y;
-        if(minValue!=0)
+        if (minValue != 0)
             this /= Math.Abs(minValue);
     }
-    public static implicit operator Vector2(Vector2Int vector) => new(vector.x,vector.y);
+    public static implicit operator Vector2(Vector2Int vector) => new(vector.x, vector.y);
     public static Vector2 operator +(Vector2 a, Vector2 b) => new Vector2(a.x + b.x, a.y + b.y);
     public static Vector2 operator -(Vector2 a, Vector2 b) => new Vector2(a.x - b.x, a.y - b.y);
     public static Vector2 operator *(Vector2 a, double b) => new Vector2((float)(a.x * b), (float)(a.y * b));

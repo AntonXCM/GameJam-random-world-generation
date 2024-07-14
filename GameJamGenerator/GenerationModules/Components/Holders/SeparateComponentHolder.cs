@@ -1,13 +1,11 @@
-﻿using System.ComponentModel;
-
-public class SeparateComponentHolder<T> : SeparateComponentHolder<T, IComponent<T>>
+﻿public class SeparateComponentHolder<T> : SeparateComponentHolder<T, IComponent<T>>
 {
-    public SeparateComponentHolder(T owner) : base(owner){}
+    public SeparateComponentHolder(T owner) : base(owner) { }
 }
-public class SeparateComponentHolder<T,ComponenT> : SeparateComponentHolder, IComponentHolder<ComponenT> where ComponenT : IComponent<T>
+public class SeparateComponentHolder<T, ComponenT> : SeparateComponentHolder, IComponentHolder<ComponenT> where ComponenT : IComponent<T>
 {
     List<ComponenT> Components = [];
-    public SeparateComponentHolder(T owner) : base(owner){}
+    public SeparateComponentHolder(T owner) : base(owner) { }
 
     public override void AddComponent<TOwner>(IComponent<TOwner> component)
     {
@@ -41,10 +39,10 @@ public abstract class SeparateComponentHolder
     }
 
     public static SeparateComponentHolder GetFromObject<TOwner>(TOwner owner) => new SeparateComponentHolder<TOwner>(owner);
-    public static SeparateComponentHolder GetFromObject<TOwner,ComponenT>(TOwner owner, ComponenT componentType) where ComponenT : ComponentBase<TOwner> => new SeparateComponentHolder<TOwner,ComponenT>(owner);
-    public virtual void AddComponent<TOwner>(IComponent<TOwner> component) 
-    { 
-        if (!Owner.GetType().IsSubclassOf(typeof(TOwner))) throw new InvalidOperationException("Не подходящий компонент)"); 
+    public static SeparateComponentHolder GetFromObject<TOwner, ComponenT>(TOwner owner, ComponenT componentType) where ComponenT : ComponentBase<TOwner> => new SeparateComponentHolder<TOwner, ComponenT>(owner);
+    public virtual void AddComponent<TOwner>(IComponent<TOwner> component)
+    {
+        if (!Owner.GetType().IsSubclassOf(typeof(TOwner))) throw new InvalidOperationException("Не подходящий компонент)");
     }
     public abstract void RemoveComponent<TOwner>(ComponentBase<TOwner> component);
 }

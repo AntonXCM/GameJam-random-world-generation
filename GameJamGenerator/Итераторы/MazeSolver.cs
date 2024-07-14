@@ -1,7 +1,7 @@
 ﻿public abstract class MazeSolver<T> : BucketIterator<T>
 {
     readonly protected Vector2Int startPos, endPos;
-    readonly Func<T,int> tileWeight;
+    readonly Func<T, int> tileWeight;
     Matrix hardnessToGetPoint;
     public MazeSolver(Vector2Int startPos, Vector2Int endPos, Func<T, int> tileWeight) : base([startPos], [])
     {
@@ -13,12 +13,12 @@
     {
         base.Initialze(ref grid);
         hardnessToGetPoint = new(grid.Width, grid.Height, int.MaxValue);
-        hardnessToGetPoint[startPos.x,startPos.y] = 0;
+        hardnessToGetPoint[startPos.x, startPos.y] = 0;
     }
     public override bool Action(Vector2Int pos)
     {
-        if(pos != startPos)
-            hardnessToGetPoint[pos.x,pos.y] = GetThatCellHardness(pos);
+        if (pos != startPos)
+            hardnessToGetPoint[pos.x, pos.y] = GetThatCellHardness(pos);
         return false;
     }
     protected override void Iterate()
@@ -37,7 +37,7 @@
         WorkWithSolution(solution);
     }
     protected abstract void WorkWithSolution(List<Vector2Int> solution);
-    private int GetThatCellHardness(Vector2Int pos) => 
-        hardnessToGetPoint.GetNearFourCells(pos,999).OrderBy(cell => cell).FirstOrDefault() + tileWeight(iteratingGrid[pos]);
-    public override bool CheckPosition(Vector2Int pos) => GetThatCellHardness(pos) < hardnessToGetPoint[pos.x,pos.y]&& !positionsToCheck.Contains(pos);
+    private int GetThatCellHardness(Vector2Int pos) =>
+        hardnessToGetPoint.GetNearFourCells(pos, 999).OrderBy(cell => cell).FirstOrDefault() + tileWeight(iteratingGrid[pos]);
+    public override bool CheckPosition(Vector2Int pos) => GetThatCellHardness(pos) < hardnessToGetPoint[pos.x, pos.y] && !positionsToCheck.Contains(pos);
 }

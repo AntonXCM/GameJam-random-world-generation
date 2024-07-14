@@ -1,4 +1,4 @@
-﻿public class ClosedExit:GameGenerator
+﻿public class ClosedExit : GameGenerator
 {
     public override Grid Generate(int playerX)
     {

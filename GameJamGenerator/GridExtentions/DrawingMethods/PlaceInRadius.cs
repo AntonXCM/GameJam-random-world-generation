@@ -8,7 +8,7 @@
             Vector2 random = Vector2.random;
             random.Magnitude = range;
             pos = random + (Vector2)center;
-        } while (pos.x < 0 || Math.Round( pos.x) >= grid.Width || pos.y < 0 || Math.Round(pos.y) >= grid.Height || !IsReachable(pos) || !availableTiles.Contains(grid[pos]));
+        } while (pos.x < 0 || Math.Round(pos.x) >= grid.Width || pos.y < 0 || Math.Round(pos.y) >= grid.Height || !IsReachable(pos) || !availableTiles.Contains(grid[pos]));
 
         grid[pos] = value;
         bool IsReachable(Vector2 pos)

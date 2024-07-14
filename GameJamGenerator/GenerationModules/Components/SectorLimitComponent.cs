@@ -12,7 +12,7 @@ public class SectorLimitComponent<T> : IteratorGenerationModuleComponent<T>
     public SectorLimitComponent(Vector2Int sectorSize, uint sectorMax = 1, SortMode sortMode = SortMode.Random)
     {
         uint x = (uint)Math.Abs(sectorSize.x), y = (uint)Math.Abs(sectorSize.y);
-        sectorSquare = x*y;
+        sectorSquare = x * y;
         if (sectorMax >= sectorSquare) throw new IndexOutOfRangeException("Максимум сектора больше его площади. Компонент стал бесполезен и в этом виноват ты.");
         if (sectorMax == 0) throw new IndexOutOfRangeException("Максимум сектора равен нулю. Модуль больше не работоспособен");
         this.sectorSize = new((int)x, (int)y);
@@ -22,12 +22,12 @@ public class SectorLimitComponent<T> : IteratorGenerationModuleComponent<T>
     ConcurrentDictionary<Vector2Int, List<(Vector2Int pos, T lastValue)>> affectedPositionsInSectors = new();
     protected override GenerationModule<T>.OnDrawTileDelegate OnDrawTile => (Vector2Int pos, T value, T lastValue) =>
     {
-        List<(Vector2Int pos,T lastValue)> sector = affectedPositionsInSectors.GetOrAdd(pos / sectorSize, []);
+        List<(Vector2Int pos, T lastValue)> sector = affectedPositionsInSectors.GetOrAdd(pos / sectorSize, []);
         if (!sector.Any(x => x.pos == pos)) sector.Add((pos, lastValue));
     };
     public override IteratorGenerationModule<T>.AfterIterationActionDelegate AfterIterationAction => () =>
         {
-            holder.OnDrawTile-=OnDrawTile;
+            holder.OnDrawTile -= OnDrawTile;
             Parallel.For(0, affectedPositionsInSectors.Count, j =>
             {
                 List<(Vector2Int pos, T lastValue)> sector;

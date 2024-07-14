@@ -13,15 +13,12 @@ public class Matrix : IGrid<int>
     {
         for (int i = 0; i < width; i++)
             for (int j = 0; j < height; j++)
-                grid[i,j] = baseValue;
+                grid[i, j] = baseValue;
     }
     public int this[int row, int col]
     {
         get => grid[row, col]; set
-        {
-            grid[row, col] = value;
-           // Console.WriteLine(ToString());
-        }
+        { grid[row, col] = value; }
     }
 
     public int Width { get => grid.GetLength(0); }
@@ -37,7 +34,7 @@ public class Matrix : IGrid<int>
             {
                 string element = this[i, j].ToString();
                 while (element.Length < TileLength) element += " ";
-                picture.Append('|'+element+'|');
+                picture.Append('|' + element + '|');
             }
             picture.Append('\n');
             for (int i = 0; i < LineLength; i++)

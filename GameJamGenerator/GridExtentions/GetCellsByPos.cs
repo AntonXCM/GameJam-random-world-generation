@@ -1,6 +1,6 @@
 ﻿public static class GetCellsByPos
 {
-    public static T[] GetNearFourCells<T>(this IGrid<T> grid, Vector2Int pos, T defaultCell = default) => 
+    public static T[] GetNearFourCells<T>(this IGrid<T> grid, Vector2Int pos, T defaultCell = default) =>
         [pos.y == 0 ? defaultCell : grid[pos.x, pos.y - 1],              //Up
          pos.x + 1 == grid.Width ? defaultCell : grid[pos.x + 1, pos.y], //Right
          pos.y + 1 == grid.Height ? defaultCell : grid[pos.x, pos.y + 1],//Down

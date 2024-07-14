@@ -1,4 +1,4 @@
-﻿public abstract class CellularMachine<T>  : IteratorGenerationModule<T>
+﻿public abstract class CellularMachine<T> : IteratorGenerationModule<T>
 {
     protected IGrid<T> inputGrid;
     public void Generate(ref IGrid<T> grid)

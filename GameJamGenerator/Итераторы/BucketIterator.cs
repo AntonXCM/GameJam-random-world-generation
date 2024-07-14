@@ -10,7 +10,7 @@
 
     protected override void Iterate()
     {
-        while(positionsToCheck.Count > 0)
+        while (positionsToCheck.Count > 0)
         {
             Vector2Int pos = positionsToCheck.Dequeue();
             Action(pos);
@@ -21,7 +21,7 @@
     }
     public void AddPositionIf(Vector2Int pos)
     {
-        if(CheckPosition(pos)) positionsToCheck.Enqueue(pos);
+        if (CheckPosition(pos)) positionsToCheck.Enqueue(pos);
     }
-    public virtual bool CheckPosition(Vector2Int pos) => !checkedPositions.Contains(pos)&&!positionsToCheck.Contains(pos);
+    public virtual bool CheckPosition(Vector2Int pos) => !checkedPositions.Contains(pos) && !positionsToCheck.Contains(pos);
 }
