@@ -9,8 +9,7 @@
             random.Magnitude = range;
             pos = random + (Vector2)center;
         } while (pos.x < 0 || Math.Round(pos.x) >= grid.Width || pos.y < 0 || Math.Round(pos.y) >= grid.Height || !IsReachable(pos) || !availableTiles.Contains(grid[pos]));
-
-        grid[pos] = value;
+        grid.DrawTile(value,pos);
         bool IsReachable(Vector2 pos)
         {
             Vector2 direction = (Vector2)center - pos;

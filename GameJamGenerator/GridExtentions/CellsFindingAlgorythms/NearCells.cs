@@ -1,4 +1,4 @@
-﻿public static class GetCellsByPos
+﻿public static partial class CellsFindingAlgorythms
 {
     public static T[] GetNearFourCells<T>(this IGrid<T> grid, Vector2Int pos, T defaultCell = default) =>
         [pos.y == 0 ? defaultCell : grid[pos.x, pos.y - 1],              //Up

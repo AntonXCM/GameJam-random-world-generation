@@ -1,7 +1,13 @@
-﻿public struct Vector2(float x, float y)
+﻿public struct Vector2
 {
-    public float x = x, y = y;
+    public float x, y;
     public static Vector2 Random => new(GlobalGenRandom.NextFloat() * (GlobalGenRandom.NextBool() ? -1 : 1), GlobalGenRandom.NextFloat() * (GlobalGenRandom.NextBool() ? -1 : 1));
+    public Vector2(Vector2Int vector) : this(vector.x, vector.y) { }
+    public Vector2(float x, float y)
+    {
+        this.y = y;
+        this.x = x;
+    }
     public double Magnitude
     {
         readonly get => Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));

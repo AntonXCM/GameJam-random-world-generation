@@ -1,6 +1,13 @@
-﻿public class HolePuncher<T>(T empty, T block, T hole) : CellularMachine<T>
+﻿public class HolePuncher<T> : CellularMachine<T>
 {
-    protected T Empty = empty, Block = block, Hole = hole;
+    protected T Empty, Block, Hole;
+
+    public HolePuncher(T empty, T block, T hole, IComponent<GenerationModule<T>>[] components = null) : base(components)
+    {
+        Empty = empty;
+        Block = block;
+        Hole = hole;
+    }
 
     public override bool Action(Vector2Int pos)
     {
@@ -9,17 +16,12 @@
         else FailedToMakeHole?.Invoke(pos.x, pos.y);
         return success;
     }
-    public event Action<int, int>? SuccededToMakeHole;
-    public event Action<int, int>? FailedToMakeHole;
+    public event Action<int, int>? SuccededToMakeHole, FailedToMakeHole;
     public virtual bool TryToMakeHole(Vector2Int pos)
     {
-        if (!inputGrid[pos].Equals(Block)) return false;
-        if (IsCross(inputGrid.GetNearFourCells(pos, Hole)))
-        {
-            MakeHole(pos);
-            return true;
-        }
-        return false;
+        if(inputGrid[pos].Equals(Block) || !IsCross(inputGrid.GetNearFourCells(pos, Hole))) return false;
+        MakeHole(pos);
+        return true;
         bool IsCross(T[] values) => CheckThatCross(values) || CheckThatCross(values.Reverse().ToArray());
         bool CheckThatCross(T[] values) => !values[0].Equals(Empty) && !values[2].Equals(Empty) && !values[1].Equals(Block) && !values[3].Equals(Block);
     }

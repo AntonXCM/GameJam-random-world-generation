@@ -1,7 +1,9 @@
-﻿public class BucketFill<T>(List<Vector2Int> startPositions, List<Vector2Int> notAllowedPositions, IBrush<T> brush) : BucketIterator<T>(startPositions, notAllowedPositions)
+﻿public class BucketFill<T> : BucketIterator<T>
 {
-    protected IBrush<T> Brush = brush;
+    protected IBrush<T> Brush;
     protected T[] fillingValues;
+
+    public BucketFill(List<Vector2Int> startPositions, List<Vector2Int> notAllowedPositions, IBrush<T> brush, IComponent<GenerationModule<T>>[] components = null) : base(startPositions, notAllowedPositions, components) => Brush = brush;
 
     protected override void Initialze(ref IGrid<T> grid)
     {

@@ -1,10 +1,10 @@
 ﻿using System.Diagnostics;
 
-public class StopwatchComponent<T> : IteratorGenerationModuleComponent<T>
+public class StopwatchComponent<T> : GenerationModuleComponent<T>
 {
     readonly Stopwatch stopwatch = new();
-    public override IteratorGenerationModule<T>.BeforeIterationActionDelegate BeforeIterationAction => stopwatch.Start;
-    public override IteratorGenerationModule<T>.AfterIterationActionDelegate AfterIterationAction => () =>
+    protected override GenerationModule<T>.BeforeIterationActionDelegate BeforeIterationAction => stopwatch.Start;
+    protected override GenerationModule<T>.AfterIterationActionDelegate AfterIterationAction => () =>
     {
         stopwatch.Stop();
         Console.WriteLine($"Модуль генерации {Holder.GetType().Name} закончил за {stopwatch.Elapsed} секунд");

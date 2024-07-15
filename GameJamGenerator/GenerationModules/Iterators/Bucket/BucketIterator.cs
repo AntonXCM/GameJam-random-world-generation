@@ -1,7 +1,14 @@
-﻿public abstract class BucketIterator<T>(IEnumerable<Vector2Int> positionsToCheck, List<Vector2Int> notAllowedPositions) : IteratorGenerationModule<T>
+﻿public abstract class BucketIterator<T> : IteratorGenerationModule<T>
 {
-    protected List<Vector2Int> checkedPositions = notAllowedPositions;
-    protected Queue<Vector2Int> positionsToCheck = new(positionsToCheck);
+    protected List<Vector2Int> checkedPositions;
+    protected Queue<Vector2Int> positionsToCheck;
+
+    public BucketIterator(IEnumerable<Vector2Int> positionsToCheck, IEnumerable<Vector2Int> notAllowedPositions, IComponent<GenerationModule<T>>[] components = null) 
+    : base(components)
+    {
+        checkedPositions = notAllowedPositions.ToList();
+        this.positionsToCheck = new(positionsToCheck);
+    }
 
     protected override void Iterate()
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Concurrent;
 
-public class SectorLimitComponent<T> : IteratorGenerationModuleComponent<T>
+public class SectorLimitComponent<T> : GenerationModuleComponent<T>
 {
     public enum SortMode
     {
@@ -25,7 +25,7 @@ public class SectorLimitComponent<T> : IteratorGenerationModuleComponent<T>
         List<(Vector2Int pos, T lastValue)> sector = affectedPositionsInSectors.GetOrAdd(pos / sectorSize, []);
         if (!sector.Any(x => x.pos == pos)) sector.Add((pos, lastValue));
     };
-    public override IteratorGenerationModule<T>.AfterIterationActionDelegate AfterIterationAction => () =>
+    protected override GenerationModule<T>.AfterIterationActionDelegate AfterIterationAction => () =>
         {
             Holder.OnDrawTile -= OnDrawTile;
             Parallel.For(0, affectedPositionsInSectors.Count, j =>
