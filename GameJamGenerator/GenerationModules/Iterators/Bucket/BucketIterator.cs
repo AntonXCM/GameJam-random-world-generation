@@ -16,7 +16,7 @@
         {
             Vector2Int pos = positionsToCheck.Dequeue();
             Action(pos);
-            foreach (Vector2Int position in pos.GetNearFourCells(Vector2Int.Zero, new Vector2Int(iteratingGrid.Width, iteratingGrid.Height) - Vector2Int.One))
+            foreach (Vector2Int position in pos.GetNearFourCells(Vector2Int.Zero, iteratingGrid.Size - Vector2Int.One))
                 AddPositionIf(position);
             checkedPositions.Add(pos);
         }

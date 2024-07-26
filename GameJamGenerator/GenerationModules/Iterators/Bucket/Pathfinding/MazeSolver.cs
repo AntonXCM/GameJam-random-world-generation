@@ -14,7 +14,7 @@
     {
         base.Initialze(ref grid);
         hardnessToGetPoint = new(grid.Width, grid.Height, int.MaxValue);
-        hardnessToGetPoint[startPos.x, startPos.y] = 0;
+        hardnessToGetPoint[startPos] = 0;
     }
     public override bool Action(Vector2Int pos)
     {
@@ -28,15 +28,19 @@
         List<Vector2Int> solution = [endPos];
         for (Vector2Int pos = endPos; pos != startPos;)
         {
-            List<(Vector2Int pos, int weight)> potentialPoses = [(new(), int.MaxValue)];
+            int weight = int.MaxValue;
+            List<Vector2Int> potentialPoses = [Vector2Int.Zero];
             foreach (Vector2Int position in pos.GetNearFourCells(Vector2Int.Zero, new Vector2Int(iteratingGrid.Width - 1, iteratingGrid.Height - 1)))
             {
                 int hardness = hardnessToGetPoint[position];
-                if (hardness < potentialPoses[0].weight) potentialPoses = [(position, hardness)];
-                else if (hardness == potentialPoses[0].weight) potentialPoses.Add((position, hardness));
+                if(hardness < weight)
+                {
+                    potentialPoses = [position];
+                    weight = hardness;
+                }
+                else if(hardness == weight) potentialPoses.Add(position);
             }
-
-            pos = potentialPoses.OrderBy(x => GlobalGenRandom.Next()).FirstOrDefault().pos;
+            pos = potentialPoses.OrderBy(x => GlobalGenRandom.Next()).FirstOrDefault();
             solution.Add(pos);
         }
         WorkWithSolution(solution);

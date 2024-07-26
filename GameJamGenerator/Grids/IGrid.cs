@@ -1,16 +1,13 @@
-﻿public enum Direction
+﻿public enum ActionStopMode
 {
-    Right = 0b_1000_0000, Left = 0b_1100_0000, Down = 0b_0011_0000, Up = 0b_0010_0000
-}
-public enum ActionStopMode
-{
-    None, StopCycle, AddRowToIgnoreList, StopIterating
+    None, StopInnerIteration, AddRowToIgnoreList, StopIterating
 }
 public interface IGrid : ICloneable
 {
     public int Width { get; }
     public int Height { get; }
     public Vector2Int Size { get => new(Width, Height); }
+    public RectInt SizeRect { get => new(Size, Vector2Int.Zero); }
 }
 public interface IGrid<T> : IGrid, IEnumerable<T>
 {

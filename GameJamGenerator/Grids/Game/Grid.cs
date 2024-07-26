@@ -10,10 +10,7 @@ public class Grid : IGrid<Tile>
     public Grid(Tile[,] grid) => ReplaceGrid(grid);
 
     public Grid(int width, int height) : this(width, height, Tile.empty) { }
-    public Grid(int width, int height, Tile baseValue) : this(new Tile[width, height])
-    {
-        this.Iterate((pos) => { (this as IGrid<Tile>)[pos] = baseValue; return false; });
-    }
+    public Grid(int width, int height, Tile baseValue) : this(new Tile[width, height]) => this.Iterate((pos) => { (this as IGrid<Tile>)[pos] = baseValue; return false; });
     public Tile this[int row, int col] { get => grid[row, col]; set => grid[row, col] = value; }
 
     public int Width { get; private set; }

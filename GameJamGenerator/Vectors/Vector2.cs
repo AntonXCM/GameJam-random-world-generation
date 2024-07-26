@@ -11,28 +11,21 @@
     public double Magnitude
     {
         readonly get => Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
-        set
-        {
-            double multiplier = value / Magnitude;
-            this *= multiplier;
-        }
+        set => this *= value / Magnitude;
     }
     public const int Dimensions = 2;
 
     public float this[int dimension]
     {
-        readonly get
+        readonly get => dimension switch
         {
-            return dimension switch
-            {
-                0 => x,
-                1 => y,
-                _ => throw new ArgumentOutOfRangeException("Есть только X и Y"),
-            };
-        }
+            0 => x,
+            1 => y,
+            _ => throw new ArgumentOutOfRangeException("Есть только X и Y"),
+        };
         set
         {
-            switch (dimension)
+            switch(dimension)
             {
                 case 0: x = value; break;
                 case 1: y = value; break;
@@ -40,10 +33,7 @@
             }
         }
     }
-    public void Normalize()
-    {
-        Magnitude = 1;
-    }
+    public void Normalize() => Magnitude = 1;
     public void NormalizeMin1()
     {
         Normalize();
