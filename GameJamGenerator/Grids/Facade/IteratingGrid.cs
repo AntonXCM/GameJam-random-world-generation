@@ -24,7 +24,7 @@ public abstract partial class GenerationModule<T>
         public void DrawTile(Vector2Int pos, T value)
         {
             T lastValue = grid[pos];
-            grid[pos] = value;
+            GridDrawingMethods.DrawTile(grid,pos,value);
             OnDrawTile?.Invoke(pos, value, lastValue);
         }
         public void DrawTile(Vector2Int pos, IBrush<T> brush) => DrawTile(pos, brush.GetValue(pos, grid[pos]));

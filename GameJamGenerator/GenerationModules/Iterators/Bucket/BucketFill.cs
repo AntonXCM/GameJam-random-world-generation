@@ -1,6 +1,6 @@
-﻿public class BucketFill<T> : BucketIterator<T>
+﻿public class BucketFill<T> : BucketIterator<T>, IHasBrush<T>
 {
-    protected IBrush<T> Brush;
+    public IBrush<T> Brush { get; set; }
     protected T[] fillingValues;
 
     public BucketFill(List<Vector2Int> startPositions, List<Vector2Int> notAllowedPositions, IBrush<T> brush, IComponent<GenerationModule<T>>[] components = null) : base(startPositions, notAllowedPositions, components) => Brush = brush;

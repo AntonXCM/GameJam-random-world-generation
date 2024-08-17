@@ -1,20 +1,20 @@
 ﻿public static partial class GridDrawingMethods
 {
-    public static bool DrawTile<T>(this IGrid<T> grid, IBrush<T> brush, Vector2Int pos) => grid.DrawTile(brush.GetValue(pos, grid[pos]), pos);
-    public static bool DrawTile<T>(this IGrid<T> grid, T tile, Vector2Int pos)
+    public static bool DrawTile<T>(this IGrid<T> grid, Vector2Int pos, IBrush<T> brush, params T[] notAllowedTiles)
+    {
+        if(grid.IsEquals(pos,notAllowedTiles)) return true;
+        return grid.DrawTile(pos, brush);
+    }
+    public static bool DrawTile<T>(this IGrid<T> grid, Vector2Int pos,IBrush<T> brush) => grid.DrawTile(pos,brush.GetValue(pos, grid[pos]));
+    public static bool DrawTile<T>(this IGrid<T> grid, Vector2Int pos, T tile)
     {
         if(!grid.SizeRect.IsInRect(pos)) return true;
         if(!grid[pos].Equals(tile)) grid[pos] = tile;
         return false;
     }
-    public static bool DrawTile<T>(this IGrid<T> grid, T tile, T notAllowedTile, Vector2Int pos)
+    public static bool DrawTile<T>(this IGrid<T> grid, Vector2Int pos, T tile, params T[] notAllowedTiles)
     {
-        if(grid[pos].Equals(notAllowedTile)) return true;
-        return grid.DrawTile(tile, pos);
-    }
-    public static bool DrawTile<T>(this IGrid<T> grid, T tile, T[] notAllowedTiles, Vector2Int pos)
-    {
-        if(notAllowedTiles.Any(t => grid[pos].Equals(t))) return true;
-        return grid.DrawTile(tile, pos);
+        if(grid.IsEquals(pos,notAllowedTiles)) return true;
+        return grid.DrawTile(pos,tile);
     }
 }

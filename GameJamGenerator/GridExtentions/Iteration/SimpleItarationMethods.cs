@@ -1,4 +1,6 @@
-﻿public static class SimpleItarationMethods
+﻿using MathA;
+
+public static class SimpleItarationMethods
 {
     public static void Iterate(this IGrid grid, Func<Vector2Int, bool> iterationFunction, Direction direction = Direction.Right, List<int> ignoreList = null, ActionStopMode actionStopMode = ActionStopMode.None) => grid.SizeRect.Iterate(iterationFunction, direction, ignoreList, actionStopMode);
     public static void Iterate(this RectInt rect, Func<Vector2Int, bool> iterationFunction, Direction direction = Direction.Right, List<int> ignoreList = null, ActionStopMode actionStopMode = ActionStopMode.None)=>Iterate(rect,iterationFunction, direction.ToVector(),direction.ToVector().Perpendicular(),ignoreList,actionStopMode);

@@ -4,7 +4,7 @@
 
     protected CellularMachine(IComponent<GenerationModule<T>>[] components = null) : base(components){}
 
-    public void Generate(ref IGrid<T> grid)
+    public override void Generate(ref IGrid<T> grid)
     {
         Initialze(ref grid);
         Iterate();

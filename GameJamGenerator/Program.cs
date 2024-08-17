@@ -4,11 +4,10 @@
     {
         static void Main()
         {
-            while(true)
-            {
+            start:
                 Console.WriteLine(new NoiseForest().Generate(0).ToString());//Вызываем генерацию и сразу делаем в ToString
                 Console.ReadLine();
-            }
+            goto start;
         }
     }
 }

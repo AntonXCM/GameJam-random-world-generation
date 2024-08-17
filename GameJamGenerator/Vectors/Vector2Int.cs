@@ -1,4 +1,6 @@
-﻿public struct Vector2Int(int x, int y)
+﻿using System.Collections;
+
+public struct Vector2Int : IEnumerator<int>, IEnumerable,ICollection
 {
     /// <summary>
     /// (0,0)
@@ -24,9 +26,19 @@
     /// (0,1)
     /// </summary>
     public static Vector2Int Down => new(0, 1);
-    public int x = x, y = y;
+    public int x, y;
     public readonly double Magnitude => Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
+
+
     public static implicit operator Vector2Int(Vector2 vector) => new((int)Math.Round(vector.x), (int)Math.Round(vector.y));
+
+    public Vector2Int(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+    public Vector2Int(bool x, bool y) : this(x?1:-1,y?1:-1) {}
+
     public Vector2Int(Vector2 vector) : this((int)Math.Round(vector.x), (int)Math.Round(vector.y)) { }
     public static Vector2Int operator +(Vector2Int a, Vector2Int b) => new(a.x + b.x, a.y + b.y);
     public static Vector2Int operator -(Vector2Int a, Vector2Int b) => new(a.x - b.x, a.y - b.y);
@@ -54,4 +66,28 @@
     }
     public readonly override int GetHashCode()=> base.GetHashCode();
     public readonly override string? ToString() => $"X = {x}, Y = {y}, Длина = {Magnitude}";
+
+    //Реализация IEnumerator
+    bool currentIsX = true;
+    public int Current => currentIsX ? x : y;
+    object IEnumerator.Current => Current;
+
+    public int Count => 2;
+    public bool IsSynchronized => true;
+    public object SyncRoot { get; private set; }
+
+    public bool MoveNext()
+    {
+        currentIsX = !currentIsX;
+        return !currentIsX;
+    }
+    public void Reset() => currentIsX = true;
+    public void Dispose() => Reset();
+    public IEnumerator GetEnumerator() => this;
+
+    public void CopyTo(Array array, int index)
+    {
+        foreach(int i in this)
+            array.SetValue(i,index++);
+    }
 }

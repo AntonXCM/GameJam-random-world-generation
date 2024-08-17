@@ -1,4 +1,4 @@
-﻿
+﻿using MathA;
 public abstract class SimpleIteratorGenerationModule<T> : IteratorGenerationModule<T>
 {
     protected ActionStopMode actionStopMode;
