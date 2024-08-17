@@ -1,23 +1,11 @@
-﻿using System.Collections;
-using System.Text;
-public class Matrix : IGrid<int>
+﻿using System.Text;
+
+public class Matrix : GridBase<int>
 {
-    private int[,] grid;
-    public Matrix(int[,] grid) => ReplaceGrid(grid);
-    public Matrix(int width, int height) : this(new int[width, height]) { }
-    public Matrix(int width, int height, int baseValue) : this(width, height) => this.Iterate((Vector2Int pos) => { this[pos] = baseValue; return false; });
-    public int this[int row, int col]
-    {
-        get => grid[row, col];
-        set => grid[row, col] = value;
-    }
-    public int this[Vector2Int pos] 
-    { 
-        get => this[pos.x, pos.y]; 
-        set => this[pos.x, pos.y] = value; 
-    }
-    public int Width { get; private set; }
-    public int Height { get; private set; }
+    public Matrix(int width, int height, int baseValue) => Construct(width, height, baseValue);
+    public Matrix(int width, int height) : this(width, height, 0) { }
+    public Matrix(int[,] grid) => Construct(grid);
+
     public override string ToString()
     {
         int TileLength = this.GetMaxValue(x => x).ToString().Length;
@@ -39,14 +27,5 @@ public class Matrix : IGrid<int>
         return picture.ToString();
     }
 
-    public object Clone() => new Matrix(grid);
-    IEnumerator IEnumerable.GetEnumerator() => grid.GetEnumerator();
-    public IEnumerator<int> GetEnumerator() => grid.Cast<int>().GetEnumerator();
-
-    public void ReplaceGrid(int[,] newGrid)
-    {
-        grid = newGrid ?? throw new ArgumentNullException("Ну давай, тогда, просто удали объект)");
-        Width = grid.GetLength(0);
-        Height = grid.GetLength(1);
-    }
+    protected override object Clone(int[,] grid) => new Matrix(grid);
 }
