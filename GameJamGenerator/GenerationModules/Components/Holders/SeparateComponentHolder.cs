@@ -15,7 +15,7 @@ public class SeparateComponentHolder<T, ComponenT>(T owner) : SeparateComponentH
         component.OnAdd((T)Owner);
     }
 
-    public override void RemoveComponent<TOwner>(ComponentBase<TOwner> component) => RemoveComponent(component as ComponentBase<T>);
+    public override void RemoveComponent<TOwner>(IComponent<TOwner> component) => RemoveComponent(component as ComponentBase<T>);
     public void RemoveComponent(ComponenT component)
     {
         if (!Components.Contains(component)) throw new InvalidOperationException($"Невозможно удалить {(component.HolderObject == null ? "ничей" : "чужой")} компонент!");
@@ -35,11 +35,12 @@ public abstract class SeparateComponentHolder
     }
 
     public static SeparateComponentHolder GetFromObject<TOwner>(TOwner owner) => new SeparateComponentHolder<TOwner>(owner);
+
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Удалите неиспользуемый параметр", Justification = "<Так надо>")]
     public static SeparateComponentHolder GetFromObject<TOwner, ComponenT>(TOwner owner, ComponenT componentType) where ComponenT : ComponentBase<TOwner> => new SeparateComponentHolder<TOwner, ComponenT>(owner);
     public virtual void AddComponent<TOwner>(IComponent<TOwner> component)
     {
         if (!Owner.GetType().IsSubclassOf(typeof(TOwner))) throw new InvalidOperationException("Не подходящий компонент)");
     }
-    public abstract void RemoveComponent<TOwner>(ComponentBase<TOwner> component);
+    public abstract void RemoveComponent<TOwner>(IComponent<TOwner> component);
 }

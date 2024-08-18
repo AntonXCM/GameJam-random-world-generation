@@ -1,4 +1,4 @@
-﻿public abstract partial class GenerationModule<T>
+﻿public abstract partial class GenerationModule<T> : IComponentHolder<GenerationModuleComponent<T>>
 {
     protected IteratingGrid iteratingGrid;
     /// <summary>
@@ -7,7 +7,6 @@
     public IGrid<T> LookAtGrid => iteratingGrid.LookAtGrid;
     protected int Rows { get; private set; }
     protected int Cols { get; private set; }
-    public SeparateComponentHolder componentHolder;
     public GenerationModule(IComponent<GenerationModule<T>>[] components)
     {
         componentHolder = SeparateComponentHolder.GetFromObject(this);
@@ -33,6 +32,11 @@
     public event AfterIterationActionDelegate AfterIterationAction;
     protected void AfterIteration() => AfterIterationAction?.Invoke();
     public void DrawTile(Vector2Int pos, T value) => iteratingGrid.DrawTile(pos, value);
+
+    public SeparateComponentHolder componentHolder;
+    public void AddComponent(GenerationModuleComponent<T> component) => componentHolder.AddComponent(component);
+    public void RemoveComponent(GenerationModuleComponent<T> component) => componentHolder.RemoveComponent(component);
+
     public delegate void OnDrawTileDelegate(Vector2Int pos, T value, T lastValue);
     public event OnDrawTileDelegate OnDrawTile;
 }

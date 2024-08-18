@@ -14,8 +14,8 @@ public abstract class GridBase<T> : IGrid<T>
     public int Width { get; private set; }
     public int Height { get; private set; }
 
-    public T this[int row, int col] { get => grid[row, col]; set => grid[row, col] = value; }
-
+    public virtual T this[int row, int col] { get => grid[row, col]; set => grid[row, col] = value; }
+    public T this[Vector2Int pos] { get => this[pos.x, pos.y]; set => this[pos.x, pos.y] = value; }
     public void ReplaceGrid(T[,] newGrid)
     {
         grid = newGrid ?? throw new ArgumentNullException("Ну давай, тогда, просто удали объект)");
