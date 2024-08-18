@@ -1,3 +1,6 @@
-﻿public class PerdinNoise
+﻿namespace MathA;
+
+public class PerlinNoise
 {
+
 }

@@ -1,6 +1,7 @@
 ﻿public struct RectInt
 {
     public Vector2Int Min, Max;
+    public RectInt(int x, int y) { Min = Vector2Int.Zero; Max = new(x,y); }
     public RectInt(params Vector2Int[] points)
     {
         IEnumerable<int>xs = points.Select(p => p.x),
