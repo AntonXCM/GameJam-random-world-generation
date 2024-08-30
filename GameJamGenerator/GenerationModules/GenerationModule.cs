@@ -1,4 +1,6 @@
-﻿public abstract partial class GenerationModule<T> : IComponentHolder<GenerationModuleComponent<T>>
+﻿using System.ComponentModel;
+
+public abstract partial class GenerationModule<T> : IComponentHolder<GenerationModuleComponent<T>>
 {
     protected IteratingGrid iteratingGrid;
     /// <summary>
@@ -35,6 +37,12 @@
 
     public SeparateComponentHolder componentHolder;
     public void AddComponent(GenerationModuleComponent<T> component) => componentHolder.AddComponent(component);
+
+    public GenerationModule<T> Component(GenerationModuleComponent<T> component)
+    {
+        AddComponent(component);
+        return this;
+    }
     public void RemoveComponent(GenerationModuleComponent<T> component) => componentHolder.RemoveComponent(component);
 
     public delegate void OnDrawTileDelegate(Vector2Int pos, T value, T lastValue);

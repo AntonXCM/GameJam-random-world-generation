@@ -8,7 +8,7 @@ public class Matrix : GridBase<int>
 
     public override string ToString()
     {
-        int TileLength = this.GetMaxValue(x => x).ToString().Length;
+        int TileLength = Math.Max(this.GetMaxValue(x => x).ToString().Length,this.GetMinValue(x => x).ToString().Length);
         int LineLength = Width * (TileLength + 1) + 1;
         StringBuilder picture = new(LineLength * Height * 2);
         for (int j = 0; j < Height; j++)

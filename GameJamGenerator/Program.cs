@@ -8,7 +8,7 @@ namespace GameJamGenerator
         {
             Console.WriteLine(new VectorGrid(5, 5, 1));
             start:
-                Console.WriteLine(new NoiseForest().Generate(0).ToString());//Вызываем генерацию и сразу делаем в ToString
+                Console.WriteLine(new PerlinNoiseLevel().Generate(0).ToString());//Вызываем генерацию и сразу делаем в ToString
                 Console.ReadLine();
             goto start;
 
