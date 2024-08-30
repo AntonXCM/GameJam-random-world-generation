@@ -20,4 +20,6 @@ public static class Vector
     public static bool AnyMoreThan(this Vector2Int vector, int value) => vector.AnyMoreThan(Vector2Int.One * value);
     public static bool AnyMoreThan(this Vector2Int vector, Vector2Int value) => vector.x > value.x || vector.y > value.y;
     public static Vector2 Abs(this Vector2 vector) => new(Math.Abs(vector.x), Math.Abs(vector.y));
+
+    public static float DotProduct(this Vector2 a, Vector2 b) => a.x * b.x + a.y * b.y;
 }

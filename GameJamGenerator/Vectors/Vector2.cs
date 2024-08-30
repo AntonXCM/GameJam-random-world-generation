@@ -52,6 +52,10 @@
     public static Vector2 operator -(Vector2 a, Vector2 b) => new(a.x - b.x, a.y - b.y);
     public static Vector2 operator *(Vector2 a, double b) => new((float)(a.x * b), (float)(a.y * b));
     public static Vector2 operator /(Vector2 a, double b) => new((float)(a.x / b), (float)(a.y / b));
+    public static Vector2 operator *(Vector2 a, Vector2 b) => new((float)(a.x * b.x), (float)(a.y * b.y));
+    public static Vector2 operator /(Vector2 a, Vector2 b) => new((float)(a.x / b.x), (float)(a.y / b.y));
+    public static Vector2 operator %(Vector2 a, Vector2 b) => new((float)(a.x % b.x), (float)(a.y % b.y));
+
     public override string ToString() => $"{x}, {y}";
     public char ToSymbol()
     {
