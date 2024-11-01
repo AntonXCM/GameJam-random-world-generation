@@ -1,4 +1,4 @@
 ﻿public abstract class GameGenerator
 {
-    public abstract Grid Generate(int playerX);
+    public abstract IGrid Generate(int playerX);
 }

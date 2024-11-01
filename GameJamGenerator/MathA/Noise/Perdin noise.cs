@@ -1,4 +1,5 @@
-﻿namespace MathA;
+﻿
+namespace MathA;
 
 public class PerlinNoise
 {
@@ -11,13 +12,47 @@ public class PerlinNoise
     }
 
     public PerlinNoise(VectorGrid noiseMap) => this.noiseMap = noiseMap;
-
-    public float GetNoise(float x, float y) => GetNoise(new(x, y));
-    public float GetNoise(Vector2 pos)
+    public async Task<(Vector2, Vector2)[]> GetGradientVectorsAsync(Vector2 pos)
     {
-        Vector2 cellPos = (pos % cellSize)/cellSize;
-        double[] poses = (from near in new Vector2[] {Vector2Int.Zero,Vector2Int.Down,Vector2Int.Right,Vector2Int.One}
-                          select (double)(near-cellPos).DotProduct(noiseMap[(Vector2Int)(pos / cellSize + near)])).ToArray();
-        return (float)MathA.Interpolation.Sinus(MathA.Interpolation.Sinus(poses[1],poses[0],cellPos.y),MathA.Interpolation.Sinus(poses[3],poses[2],cellPos.y),cellPos.x);
+        return await Task.Run(() =>
+        {
+            pos /= cellSize;
+            Vector2 cellPos = (pos % Vector2Int.One);
+
+            Vector2 gridPoint0 = pos.RemoveFractionalPart();
+            Vector2 gridPoint1 = (Vector2Int)gridPoint0 + Vector2Int.One;
+
+            return new (Vector2, Vector2)[]
+            {
+            (-cellPos, noiseMap[gridPoint0]),
+            ((Vector2)Vector2Int.Right - cellPos, noiseMap[gridPoint0.CombineX(gridPoint1)]),
+            ((Vector2)Vector2Int.Down - cellPos, noiseMap[gridPoint0.CombineY(gridPoint1)]),
+            ((Vector2)Vector2Int.One - cellPos, noiseMap[gridPoint1])
+            };
+        });
     }
+
+    public async Task<float> GetNoiseAsync(Vector2 pos)
+    {
+        var gradientCorners = (await GetGradientVectorsAsync(pos))
+        .Select(v => ComputeGradientContribution(v.Item1, v.Item2))
+        .ToArray();
+
+        pos /= cellSize;
+        Vector2 cellPos = (pos % Vector2Int.One);
+        cellPos.x = Interpolation.GetSinusInterpolationCoeficcient(cellPos.x);
+
+        var interpolateBottom = Interpolation.Linear(gradientCorners[0], gradientCorners[1], cellPos.x);
+        var interpolateTop = Interpolation.Linear(gradientCorners[2], gradientCorners[3], cellPos.x);
+
+        float result = Interpolation.Sinus(interpolateBottom, interpolateTop, cellPos.y);
+
+        return result / 2 + 0.5f;
+    }
+
+    public Task<float> GetNoiseAsync(float x,float y) => GetNoiseAsync(new Vector2(x,y));
+    public float GetNoise(float x,float y) => GetNoiseAsync(new Vector2(x,y)).Result;
+
+
+    private static float ComputeGradientContribution(Vector2 distanceVector,Vector2 gridVector) => distanceVector.DotProduct(gridVector);
 }

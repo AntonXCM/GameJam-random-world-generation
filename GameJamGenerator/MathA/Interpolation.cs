@@ -2,10 +2,11 @@
 
 public static class Interpolation
 {
-    public static double Sinus(double a,double b,double t)
+    public static float Sinus(float a,float b,float t) => Linear(a,b,GetSinusInterpolationCoeficcient(t));
+    public static float GetSinusInterpolationCoeficcient(float t) => 0.5f - (float)Math.Cos(t * Math.PI) / 2;
+    public static float Qadratic(float a,float b,float t) => Linear(a,b,t*t);
+    public static float Linear(float a,float b,float t)
     {
-        float factor = (float)(0.5 * (1 - Math.Cos(t * Math.PI)));
-        return a * (1 - factor) + b * factor;
+        return a + (b-a)*t;
     }
-
 }

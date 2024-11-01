@@ -46,6 +46,7 @@ public struct Vector2Int : IEnumerator<int>, IEnumerable,ICollection
     public static Vector2Int operator *(Vector2Int a, int b) => new(a.x * b, a.y * b);
     public static Vector2 operator *(Vector2Int a, float b) => new(a.x * b, a.y * b);
     public static Vector2Int operator /(Vector2Int a, int b) => new(a.x / b, a.y / b);
+    public static Vector2 operator /(Vector2Int a, float b) => new(a.x / b, a.y / b);
     public static Vector2Int operator /(Vector2Int a, Vector2Int b) => new(a.x / b.x, a.y / b.y);
     public static bool operator ==(Vector2Int a, Vector2Int b) => a.x == b.x && a.y == b.y;
     public static bool operator !=(Vector2Int a, Vector2Int b) => a.x != b.x || a.y != b.y;

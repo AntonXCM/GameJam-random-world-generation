@@ -14,13 +14,13 @@ public class Matrix : GridBase<int>
         for (int j = 0; j < Height; j++)
         {
             for (int i = 0; i < LineLength; i++)
-                picture.Append('-');
+                picture.Append('─');
             picture.Append('\n');
             for (int i = 0; i < Width; i++)
             {
                 string element = this[i, j].ToString();
                 while (element.Length < TileLength) element += " ";
-                picture.Append('|' + element);
+                picture.Append('│' + element);
             }
             picture.Append('\n');
         }

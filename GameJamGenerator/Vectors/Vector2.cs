@@ -37,7 +37,12 @@
             }
         }
     }
-    public void Normalize() => Magnitude = 1;
+    public Vector2 Normalize()
+    {
+        Magnitude = 1;
+        return this;
+    }
+
     public void NormalizeMin1()
     {
         Normalize();
@@ -50,6 +55,7 @@
     public static implicit operator Vector2(Vector2Int vector) => new(vector.x, vector.y);
     public static Vector2 operator +(Vector2 a, Vector2 b) => new(a.x + b.x, a.y + b.y);
     public static Vector2 operator -(Vector2 a, Vector2 b) => new(a.x - b.x, a.y - b.y);
+    public static Vector2 operator -(Vector2 a) => new(-a.x,-a.y);
     public static Vector2 operator *(Vector2 a, double b) => new((float)(a.x * b), (float)(a.y * b));
     public static Vector2 operator /(Vector2 a, double b) => new((float)(a.x / b), (float)(a.y / b));
     public static Vector2 operator *(Vector2 a, Vector2 b) => new((float)(a.x * b.x), (float)(a.y * b.y));

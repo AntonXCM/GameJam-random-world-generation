@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "X3OYPuH+Mrn9aHQPyPBaqjddBxo9BoU2Md0yn9eG9tMWP4ElSwxJWv+wXacIQWiWH1w8vxsK2Xe1cOjfpkWONQ==",
+  "dgSpecHash": "s/1Qsh1DYuYCTCW8QUiQIsQW7sQnj2Bua80nzS6UzeOeB0UhX7UziwkKkvm1Tiwm3X+PzAhc/92ecamT4xBNHw==",
   "success": true,
   "projectFilePath": "H:\\DustyMachine\\FarmCook\\Assets\\external\\GameJam-random-world-generation\\GameJamGenerator\\GameJamGenerator.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Anton\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
+    "C:\\Users\\Anton\\.nuget\\packages\\system.drawing.common\\8.0.10\\system.drawing.common.8.0.10.nupkg.sha512"
+  ],
   "logs": []
 }

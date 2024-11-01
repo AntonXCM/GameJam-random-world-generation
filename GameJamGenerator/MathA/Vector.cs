@@ -22,5 +22,8 @@ public static class Vector
     public static Vector2 Abs(this Vector2 vector) => new(Math.Abs(vector.x), Math.Abs(vector.y));
 
     public static float DotProduct(this Vector2 a, Vector2 b) => a.x * b.x + a.y * b.y;
-    public static float DotProduct(this Vector2 a, int b) => a.x * b + a.y * b;
+    public static float DotProduct(this Vector2 a, int b) => -a.x * (float)Math.Cos(b) + -a.y * (float)Math.Cos(b);
+    public static Vector2 CombineX(this Vector2 a, Vector2 b) => new Vector2(b.x,a.y);
+    public static Vector2 CombineY(this Vector2 a, Vector2 b) => new Vector2(a.x,b.y);
+    public static Vector2Int RemoveFractionalPart(this Vector2 a) => new Vector2Int((int)a.x,(int)a.y);
 }
