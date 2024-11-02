@@ -7,8 +7,8 @@ public abstract partial class GenerationModule<T> : IComponentHolder<GenerationM
     /// Я ценю инкапсуляцию, так что, мы можем получить только копию самой сетки. Поплачь об этом >:^)
     /// </summary>
     public IGrid<T> LookAtGrid => iteratingGrid.LookAtGrid;
-    protected int Rows { get; private set; }
-    protected int Cols { get; private set; }
+    protected int Rows { get; set; }
+    protected int Cols { get; set; }
     public GenerationModule(IComponent<GenerationModule<T>>[] components)
     {
         componentHolder = SeparateComponentHolder.GetFromObject(this);
@@ -17,6 +17,11 @@ public abstract partial class GenerationModule<T> : IComponentHolder<GenerationM
             componentHolder.AddComponent(component);
     }
 
+    public IGrid<T> GenerateReturn(IGrid<T> grid)
+    {
+        Generate(ref grid);
+        return grid;
+    }
     public virtual void Generate(ref IGrid<T> grid)
     {
         Initialze(ref grid);

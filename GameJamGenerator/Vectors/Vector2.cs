@@ -61,6 +61,10 @@
     public static Vector2 operator *(Vector2 a, Vector2 b) => new((float)(a.x * b.x), (float)(a.y * b.y));
     public static Vector2 operator /(Vector2 a, Vector2 b) => new((float)(a.x / b.x), (float)(a.y / b.y));
     public static Vector2 operator %(Vector2 a, Vector2 b) => new((float)(a.x % b.x), (float)(a.y % b.y));
+    public static bool operator ==(Vector2 a, Vector2 b) => a.x==b.x&&a.y==b.y;
+    public static bool operator ==(Vector2 a, Vector2Int b) => a.x==b.x&&a.y==b.y;
+    public static bool operator !=(Vector2 a, Vector2 b) => a.x!=b.x||a.y!=b.y;
+    public static bool operator !=(Vector2 a,Vector2Int b) => a.x!=b.x||a.y!=b.y;
 
     public override string ToString() => $"x:{x}, y:{y}";
     public char ToSymbol()

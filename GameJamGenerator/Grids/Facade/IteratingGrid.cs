@@ -35,7 +35,7 @@ public abstract partial class GenerationModule<T>
         public object Clone() => new IteratingGrid(grid, ref OnDrawTile);
         public IEnumerator<T> GetEnumerator() => grid.GetEnumerator();
         IEnumerator IEnumerable.GetEnumerator() => grid.GetEnumerator();
-        public void ReplaceGrid(T[,] newGrid) => throw new NotImplementedException();
+        public void ReplaceGrid(T[,] newGrid) => grid.ReplaceGrid(newGrid);
         public override string ToString() => grid.ToString();
 
     }

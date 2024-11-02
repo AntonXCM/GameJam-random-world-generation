@@ -4,38 +4,72 @@ using System.Drawing;
 
 public class BitmapGrid :IGrid<Color>, IDisposable
 {
-    private readonly Bitmap bitmap;
+    private Bitmap bitmap;
+    private readonly object bitmapLock = new object();
 
     public BitmapGrid(int width,int height)
     {
         bitmap = new Bitmap(width,height);
     }
+    public BitmapGrid(Bitmap bitmap)
+    {
+        this.bitmap = bitmap;
+    }
 
-    public int Width => bitmap.Width;
-    public int Height => bitmap.Height;
+    public int Width
+    {
+        get
+        {
+            lock(bitmapLock)
+            {
+                return bitmap.Width;
+            }
+        }
+    }
+
+    public int Height
+    {
+        get
+        {
+            lock(bitmapLock)
+            {
+                return bitmap.Height;
+            }
+        }
+    }
 
     public Color this[int row,int col]
     {
-        get => bitmap.GetPixel(col,row);
-        set => bitmap.SetPixel(col,row,value);
+        get
+        {
+            lock(bitmapLock)
+            {
+                return bitmap.GetPixel(row,col);
+            }
+        }
+
+        set
+        {
+            lock(bitmapLock)
+            {
+                bitmap.SetPixel(row,col,value);
+            }
+        }
     }
     public void ReplaceGrid(Color[,] newGrid)
     {
-        if(newGrid.GetLength(0) != Height || newGrid.GetLength(1) != Width)
-            throw new ArgumentException("New grid dimensions must match the bitmap dimensions.");
+        if(newGrid.GetLength(0) != Width || newGrid.GetLength(1) != Height)
+            bitmap = new Bitmap(newGrid.GetLength(0),newGrid.GetLength(1));
 
         this.Iterate(pos => { ((IGrid<Color>)this)[pos] = newGrid[pos.x,pos.y]; return false; });
     }
 
-    public Vector2Int Size => new Vector2Int(Width,Height);
-    public RectInt SizeRect => new RectInt(Size,Vector2Int.Zero);
-
-    public object Clone() => new BitmapGrid(Width,Height);
+    public object Clone() => new BitmapGrid(bitmap);
 
     public IEnumerator<Color> GetEnumerator()
     {
-        for(int row = 0; row < Height; row++)
-            for(int col = 0; col < Width; col++)
+        for(int row = 0; row < Width; row++)
+            for(int col = 0; col < Height; col++)
                 yield return this[row,col];
     }
     public override string ToString()

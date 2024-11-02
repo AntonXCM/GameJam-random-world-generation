@@ -1,4 +1,8 @@
-﻿public abstract class CellularMachine<T> : IteratorGenerationModule<T>
+﻿/// <summary>
+/// Подкласс модулей генерации, предназначенных для замены всех клеток сетки. Итерация непоследовательная, по этому старайтесь обеспечивать потокобезопасность.
+/// </summary>
+/// <typeparam name="T">Тип клеток сетки</typeparam>
+public abstract class CellularMachine<T> : IteratorGenerationModule<T>
 {
     protected IGrid<T> inputGrid;
 
