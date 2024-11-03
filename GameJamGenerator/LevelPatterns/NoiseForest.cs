@@ -18,7 +18,7 @@
         new MakeLinesFromTiles<Tile>(Direction.Left, Tile.wall).Brush(Tile.door)
             .AddComponents<GenerationModule<Tile>, GenerationModuleComponent<Tile>>(new ResultPrintComponent<Tile>(1000))
             .Generate(ref grid);
-        new SmoothTerrain<Tile>(tiles => MathA.Averange.Average(tiles.ToArray())).AddComponents<GenerationModule<Tile>,GenerationModuleComponent<Tile>>(new DebuggerComponent<Tile>()).Generate(ref grid);
+        new GridBlurrer<Tile>(tiles => MathA.Averange.Average(tiles.ToArray())).AddComponents<GenerationModule<Tile>,GenerationModuleComponent<Tile>>(new DebuggerComponent<Tile>()).Generate(ref grid);
         return (Grid)grid;
     }
 }

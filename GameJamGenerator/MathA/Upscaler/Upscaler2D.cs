@@ -3,6 +3,7 @@ public abstract class Upscaler2D<Input, Output>
 {
     public IGrid<Input> oldGrid;
     public readonly Vector2 cellSize = new(4, 4);
+    RectInt nearestRect = new RectInt(Vector2Int.Zero,Vector2Int.One);
     public Upscaler2D(IGrid<Input> oldGrid,Vector2 cellSize)
     {
         this.oldGrid = oldGrid;
@@ -11,7 +12,7 @@ public abstract class Upscaler2D<Input, Output>
 
     public Output GetValue(Vector2 pos)
     {
-        Vector2 cellPos = (pos / cellSize % Vector2Int.One);
+        Vector2 cellPos = pos / cellSize % Vector2Int.One;
 
         Output result;
 
@@ -45,31 +46,21 @@ public abstract class Upscaler2D<Input, Output>
         pos /= cellSize;
         Vector2 cellPos = (pos % Vector2Int.One);
         Vector2Int gridPoint = pos.RemoveFractionalPart();
-        if(cellPos == Vector2Int.Zero)
-            return [mainNeighbor()];
-        if(cellPos.x == 0)
-            return
-                [
-            mainNeighbor(),
-            downNeighbor()
-                ];
-
-        if(cellPos.y == 0)
-            return
-                [
-            mainNeighbor(),
-            rihtNeighbor()
-                ];
-        return  
-                [
-            mainNeighbor(),
-            rihtNeighbor(),
-            downNeighbor(),
-            new((Vector2)Vector2Int.One - cellPos, oldGrid[gridPoint + Vector2Int.One])
-                ];
-        NeighborData mainNeighbor() => new(-cellPos,oldGrid[gridPoint]);
-        NeighborData rihtNeighbor() => new((Vector2)Vector2Int.Right - cellPos,oldGrid[gridPoint + Vector2Int.Right]);
-        NeighborData downNeighbor() => new((Vector2)Vector2Int.Down - cellPos,oldGrid[gridPoint + Vector2Int.Down]);
+        List<NeighborData> neighbors = [];
+        bool
+            xCycleStopped = cellPos.x == 0,
+            yCycleStopped = cellPos.y == 0;
+        for (Vector2Int cell = new(xCycleStopped ? 0 : nearestRect.Min.x,yCycleStopped ? 0 : nearestRect.Min.y); cell.y <= nearestRect.Max.y; cell.y++)
+        {
+            for (; cell.x <= nearestRect.Max.x; cell.x++)
+            {
+                neighbors.Add(new((Vector2)cell - cellPos,oldGrid[(gridPoint + cell).ClampInGrid(oldGrid)]));
+                if(xCycleStopped) break;
+            }
+            if(!yCycleStopped) cell.x = nearestRect.Min.x;
+            else break;
+        }
+        return neighbors.ToArray();
     }
     protected abstract Output ProcessNeighbor(NeighborData neighbor);
     protected virtual float InterpolationForm(float t) => Interpolation.GetSinusInterpolationCoeficcient(t);

@@ -1,4 +1,4 @@
-﻿using System.Drawing;
+﻿using Colors;
 using System;
 using MathA;
 
@@ -6,14 +6,16 @@ internal class River :GameGenerator
 {
     public override IGrid Generate(int playerX)
     {
-        return new GridUpscaler<Color>(9,Interpolation.Colorful.Linear,interpolationFormFunc: f=>f).GenerateReturn(
-            new BucketFill<Color>([Vector2Int.Zero],[],new PerlinNoiseBrush<Color>(new(50,50,1),new(17,17),
+        return ColorGrid.ToBitmapGrid((ColorGrid)
+            //new GridSharpener<Color>((c,i)=>c*i,(a,b)=>a+b).GenerateReturn(
+            new GridUpscaler<Color>(3,Color.Lerp,interpolationFormFunc: f=>f).GenerateXtimes(
+            new BucketFill<Color>([Vector2Int.Zero],[],new PerlinNoiseBrush<Color>(new(50,50,1),new(23,23),
             new Gradient<Color>([
-                (Color.ForestGreen, 0.52f),
-                (Color.DarkBlue, 0.51f),
-                (Color.DarkBlue, 0.48f),
-                (Color.ForestGreen, 0.47f)],
-                Interpolation.Colorful.Linear
-            ).Func)).GenerateReturn(new BitmapGrid(88,88)));
+                (Color.AntiqueWhite, 0.52f),
+                (Color.CadetBlue, 0.51f),
+                (Color.CadetBlue, 0.48f),
+                (Color.AntiqueWhite, 0.47f)],
+            Color.Lerp
+            ).Func)).GenerateReturn(new ColorGrid(110,60)),3));
     }
 }

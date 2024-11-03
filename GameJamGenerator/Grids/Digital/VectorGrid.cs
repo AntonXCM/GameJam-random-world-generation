@@ -19,11 +19,11 @@
 
     protected override object Clone(Vector2[,] grid) => new VectorGrid(grid);
 
-    public Matrix ToMatrixOfDegrees
+    public IntMatrix ToMatrixOfDegrees
     {
         get
         {
-            Matrix result = new Matrix(Width,Height);
+            IntMatrix result = new IntMatrix(Width,Height);
             this.Iterate(pos => { result[pos] = (int)this[pos].Angle; return false; });
             return result;
         }

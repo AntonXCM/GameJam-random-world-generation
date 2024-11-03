@@ -15,8 +15,8 @@ public static class Interpolation
         public static Color Random(Color a,Color b,float t) => t > GlobalGenRandom.NextDouble() ? b : a;
         public static Color RandomSeparate(Color a,Color b,float t) => Functional(a,b,t,(a,b,t) => (byte)Interpolation.Random(a,b,t));
         public static Color Constant(Color a,Color b,float t) => (t > 0.5f) ? b : a;
-
         public static Color Linear(Color a,Color b,float t) => Functional(a,b,t,(a,b,t)=>(byte)Interpolation.Linear(a,b,t));
+        public static Color Sinus(Color a,Color b,float t) => Functional(a,b,t,(a,b,t)=>(byte)Interpolation.Sinus(a,b,t));
         public static Color Functional(Color a,Color b,float t,Func<byte,byte,float,byte> func) => Color.FromArgb(
                 func(a.A,b.A,t),
                 func(a.R,b.R,t),

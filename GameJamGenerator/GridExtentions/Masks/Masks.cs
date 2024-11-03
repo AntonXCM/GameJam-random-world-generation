@@ -1,15 +1,17 @@
-﻿public static class Masks
+﻿using MathA;
+
+public static class Masks
 {
     public static T[,] ChopByMask<MaskT,T>(this IGrid<MaskT> mask, IGrid<T> grid, Vector2Int maskOffset, Func<MaskT, bool> maskCheckFunction = null)
     {
         maskCheckFunction ??= b => !default(MaskT).Equals(b);
-        T[,] result = new T[grid.Width, grid.Height];
+        T[,] result = new T[mask.Width, mask.Height];
         maskOffset -= mask.Size / 2;
 
         mask.IterateMask(pos =>
-            {   pos += maskOffset;
+            {  
                 if(grid.SizeRect.IsInRect(pos))
-                    result[pos.x, pos.y] = grid[pos];
+                    result[pos.x, pos.y] = grid[(pos+ maskOffset).ClampInGrid(grid)];
                 return false;
             }, maskCheckFunction);
         return result;

@@ -2,7 +2,7 @@
 {
     readonly protected Vector2Int startPos, endPos;
     private readonly Func<T, int> tileWeight;
-    Matrix hardnessToGetPoint;
+    IntMatrix hardnessToGetPoint;
 
     public MazeSolver(Vector2Int startPos, Vector2Int endPos, Func<T, int> tileWeight, IComponent<GenerationModule<T>>[] components = null) : base([startPos], [],components)
     {

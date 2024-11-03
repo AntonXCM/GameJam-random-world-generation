@@ -10,7 +10,7 @@ public abstract class GridBase<T> : IGrid<T>
     }
     public void Construct(T[,] grid) => ReplaceGrid(grid);
 
-    private T[,] grid;
+    protected T[,] grid { get; private set; }
     public int Width { get; private set; }
     public int Height { get; private set; }
 

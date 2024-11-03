@@ -3,6 +3,7 @@
 public static class SimpleItarationMethods
 {
     public static void Iterate(this IGrid grid, Func<Vector2Int, bool> iterationFunction, Direction direction = Direction.Right, List<int> ignoreList = null, ActionStopMode actionStopMode = ActionStopMode.None) => grid.SizeRect.Iterate(iterationFunction, direction, ignoreList, actionStopMode);
+    public static void Iterate<T>(this T[,] grid, Func<Vector2Int, bool> iterationFunction, Direction direction = Direction.Right, List<int> ignoreList = null, ActionStopMode actionStopMode = ActionStopMode.None) => Iterate(new RectInt(grid.GetLength(0), grid.GetLength(1)),iterationFunction, direction, ignoreList, actionStopMode);
     public static void Iterate(this RectInt rect, Func<Vector2Int, bool> iterationFunction, Direction direction = Direction.Right, List<int> ignoreList = null, ActionStopMode actionStopMode = ActionStopMode.None)=>Iterate(rect,iterationFunction, direction.ToVector(),direction.ToVector().Perpendicular(),ignoreList,actionStopMode);
     public static void Iterate(this IGrid grid, Func<Vector2Int, bool> iterationFunction, Vector2Int innerDir, Vector2Int outerDir, List<int> ignoreList = null, ActionStopMode actionStopMode = ActionStopMode.None) => grid.SizeRect.Iterate(iterationFunction, innerDir, outerDir, ignoreList, actionStopMode);
     public static void Iterate(this RectInt rect, Func<Vector2Int, bool> iterationFunction, Vector2Int innerDir, Vector2Int outerDir, List<int> ignoreList = null, ActionStopMode actionStopMode = ActionStopMode.None)

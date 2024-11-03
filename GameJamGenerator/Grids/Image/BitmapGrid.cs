@@ -7,10 +7,8 @@ public class BitmapGrid :IGrid<Color>, IDisposable
     private Bitmap bitmap;
     private readonly object bitmapLock = new object();
 
-    public BitmapGrid(int width,int height)
-    {
-        bitmap = new Bitmap(width,height);
-    }
+    public BitmapGrid(Vector2Int size) : this(size.x,size.y) { }
+    public BitmapGrid(int width,int height) : this(new Bitmap(width,height)) { }
     public BitmapGrid(Bitmap bitmap)
     {
         this.bitmap = bitmap;
@@ -90,4 +88,5 @@ public class BitmapGrid :IGrid<Color>, IDisposable
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
     public void Dispose() => bitmap.Dispose();
+    
 }
