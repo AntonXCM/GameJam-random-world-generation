@@ -11,13 +11,13 @@ internal class River :GameGenerator
             new BrushApplier<Color>(new AlphaLocker(new TextureBrush<Color>(ColorGrid.FromBitmapGrid(new BitmapGrid(new System.Drawing.Bitmap("C:/Users/Anton/вода.png")))))).GenerateReturn(
             new GridUpscaler<int>(2,Interpolation.Linear,interpolationFormFunc: f=>f).GenerateXtimes(
             new GridSharpener<int>((c,i)=>c*i,(a,b)=>a+b).GenerateXtimes(
-            new BrushApplier<int>(new PerlinNoiseBrush<int>(new(50,50,1),new(24,24),
+            new BrushApplier<int>(new PerlinNoiseBrush<int>(new(88,88,1),new(16,16),
             new Gradient<int>([
                 (0, 0.52f),
                 (255, 0.51f),
                 (255, 0.48f),
                 (0, 0.47f)],
             Interpolation.Linear
-            ).Func)).GenerateReturn(new IntMatrix(88,88)),1),4).Cast(i => new Color(0,0,0,i),new ColorGrid(1378,1378))));
+            ).Func)).GenerateReturn(new IntMatrix(88,88)),1),4).Cast(i => new Color(255,255,255,i),(x,y) => new ColorGrid(x,y))));
     }
 }

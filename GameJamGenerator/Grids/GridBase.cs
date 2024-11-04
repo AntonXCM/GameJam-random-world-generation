@@ -25,7 +25,7 @@ public abstract class GridBase<T> : IGrid<T>
     IEnumerator IEnumerable.GetEnumerator() => grid.GetEnumerator();
     public IEnumerator<T> GetEnumerator() => grid.Cast<T>().GetEnumerator();
     
-    public object Clone() => Clone(grid);
+    public object Clone() => Clone((T[,])grid.Clone());
     protected abstract object Clone(T[,] grid);
 }
 

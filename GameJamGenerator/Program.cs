@@ -1,5 +1,7 @@
 ﻿using MathA;
 
+using System.Diagnostics;
+
 namespace GameJamGenerator
 {
     internal class Program
@@ -7,8 +9,12 @@ namespace GameJamGenerator
         static void Main()
         {
             start:
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
                 Console.WriteLine(new River().Generate(new()).ToString());//Вызываем генерацию и сразу делаем в ToString
-                Console.ReadLine();
+            stopwatch.Stop();
+            Console.WriteLine(stopwatch.Elapsed);
+            Console.ReadLine();
             goto start;
         }
     }

@@ -13,7 +13,7 @@ public abstract class CellularMachine<T> : IteratorGenerationModule<T>
         Initialze(ref grid);
         Iterate();
     }
-    protected override void Iterate() => iteratingGrid.IterateParallel(pos => Action(pos));
+    protected override void Iterate() => new RectInt(Rows,Cols).IterateParallel(pos => Action(pos));
     protected override void Initialze(ref IGrid<T> grid)
     {
         base.Initialze(ref grid);

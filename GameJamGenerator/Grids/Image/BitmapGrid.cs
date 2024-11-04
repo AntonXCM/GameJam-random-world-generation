@@ -56,13 +56,21 @@ public class BitmapGrid :IGrid<Color>, IDisposable
     }
     public void ReplaceGrid(Color[,] newGrid)
     {
-        if(newGrid.GetLength(0) != Width || newGrid.GetLength(1) != Height)
-            bitmap = new Bitmap(newGrid.GetLength(0),newGrid.GetLength(1));
+        if(newGrid.GetLength(0) != Width || newGrid.GetLength(1) != Height) lock(bitmapLock)
+            {
+                bitmap = new Bitmap(newGrid.GetLength(0),newGrid.GetLength(1));
+            }
 
         this.Iterate(pos => { ((IGrid<Color>)this)[pos] = newGrid[pos.x,pos.y]; return false; });
     }
 
-    public object Clone() => new BitmapGrid(bitmap);
+    public object Clone()
+    {
+        lock(bitmapLock)
+        {
+            return new BitmapGrid((Bitmap)bitmap.Clone());
+        }
+    }
 
     public IEnumerator<Color> GetEnumerator()
     {

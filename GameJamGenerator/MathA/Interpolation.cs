@@ -9,8 +9,26 @@ public static class Interpolation
     public static float Qadratic(float a,float b,float t) => Linear(a,b,t*t);
     public static float Constant(float a,float b,float t) => t > 0.5 ? b : a;
     public static float Random(float a,float b,float t) => t > GlobalGenRandom.NextDouble() ? b : a;
-    public static float Linear(float a,float b,float t) => a + (b - a) * t;
-    public static int Linear(int a,int b,float t) => a + (int)((b - a) * t);
+    public static float Linear(float a,float b,float t)
+    {
+        if(a == b) return a;
+        if(a == 0) return b * t;
+        if(b == 0) return a * (1 - t);
+        return a + (b - a) * t;
+    }
+    public static bool Bool(bool a,bool b,float t)
+    {
+        if(a == b)  return a;
+        else        return (t > .5) == b;
+    }
+    public static int Linear(int a,int b,float t)
+    {
+        if(a == b) return a;
+        if(a == 0) return (int)(b*t);
+        if(b == 0) return (int)(a *(1-t));
+        return a + (int)((b - a) * t);
+    }
+
     public static class Colorful
     {
         public static Color Random(Color a,Color b,float t) => t > GlobalGenRandom.NextDouble() ? b : a;
