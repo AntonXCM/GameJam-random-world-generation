@@ -3,8 +3,8 @@
 public struct Color
 {
     public int R, G, B, A;
-    public static Color AntiqueWhite => System.Drawing.Color.AntiqueWhite;
-    public static Color CadetBlue => System.Drawing.Color.CadetBlue;
+    public static readonly Color Transperent = new(0,0,0,0);
+    public static readonly Color Black = new(0,0,0);
     public Color(int r,int g,int b,int a = 255)
     {
         R = r;
@@ -40,8 +40,21 @@ public struct Color
 
     public static implicit operator Color(System.Drawing.Color c) => new Color(c.R,c.G,c.B,c.A);
 
-    public static Color operator +(Color a,Color b) => new Color(a.R + b.R,a.G + b.G,a.B + b.B,a.A + b.A);
+    public static Color operator +(Color a,Color b)
+    {
+        if(a == Transperent) return b;
+        if(b == Transperent) return a;
+        return new Color(a.R + b.R,a.G + b.G,a.B + b.B,a.A + b.A);
+    }
+
     public static Color operator -(Color a,Color b) => new Color(a.R - b.R,a.G - b.G,a.B - b.B,a.A - b.A);
-    public static Color operator *(Color c,int multiplier) => new Color(c.R * multiplier,c.G * multiplier,c.B * multiplier,c.A * multiplier);
+    public static Color operator *(Color c,int multiplier)
+    {
+        if(multiplier == 0) return Transperent;
+        return new Color(c.R * multiplier,c.G * multiplier,c.B * multiplier,c.A * multiplier);
+    }
+
     public static Color operator /(Color c,int divisor) => new Color(c.R / divisor,c.G / divisor,c.B / divisor,c.A / divisor);
+    public static bool operator !=(Color a,Color b) => a.R != b.R || a.G != b.G || a.B != b.B || a.A != b.A;
+    public static bool operator ==(Color a,Color b) => a.R == b.R && a.G == b.G && a.B == b.B && a.A == b.A;
 }

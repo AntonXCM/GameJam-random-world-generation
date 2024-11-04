@@ -10,6 +10,7 @@ public static class Interpolation
     public static float Constant(float a,float b,float t) => t > 0.5 ? b : a;
     public static float Random(float a,float b,float t) => t > GlobalGenRandom.NextDouble() ? b : a;
     public static float Linear(float a,float b,float t) => a + (b - a) * t;
+    public static int Linear(int a,int b,float t) => a + (int)((b - a) * t);
     public static class Colorful
     {
         public static Color Random(Color a,Color b,float t) => t > GlobalGenRandom.NextDouble() ? b : a;

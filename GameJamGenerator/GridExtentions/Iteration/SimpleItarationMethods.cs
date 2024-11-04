@@ -28,4 +28,12 @@ public static class SimpleItarationMethods
                             return;
                         }
     }
+    public static void IterateParallel(this IGrid grid, Action<Vector2Int> iterationMethod) => IterateParallel(grid.SizeRect, iterationMethod);
+    public static void IterateParallel(this RectInt rect, Action<Vector2Int> iterationMethod) => IterateParallel(rect.Min, rect.Max, iterationMethod);
+    public static void IterateParallel(Vector2Int start,Vector2Int finish, Action<Vector2Int> iterationMethod)
+    {
+        Parallel.For(start.x,finish.x,x =>
+            Parallel.For(start.x,finish.y,y =>
+                iterationMethod(new(x,y))));
+    }
 }

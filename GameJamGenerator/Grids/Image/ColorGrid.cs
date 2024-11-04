@@ -20,6 +20,6 @@ public class ColorGrid :GridBase<Color>
         bitmap.Iterate(pos => { bitmap[pos] = colorGrid[pos]; return false; });
         return (BitmapGrid)bitmap;
     }
-    protected override object Clone(Color[,] grid)=> new ColorGrid(grid);
+    protected override object Clone(Color[,] grid)=> new ColorGrid((Color[,])grid.Clone());
 
 }
